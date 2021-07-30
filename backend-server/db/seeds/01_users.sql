@@ -1,18 +1,18 @@
+DELETE FROM users;
+
 INSERT INTO
-users(first_name, last_name, email, password)
+users(full_name, email, password)
 VALUES
-    ('Mario', 'Bros', 'mario@nintendo.com', 'test'),
-    ('Luigi', 'Bros', 'luigi@nintendo.com', 'test'),
+    ('Mario Bros', 'mario@nintendo.com', 'mushroom'),
+    ('Luigi Bros', 'luigi@nintendo.com', 'mansion'),
     (
-        'Princess',
-        'Peach',
+        'Princess Peach',
         'peach@nintendo.com',
-        'test'
+        'toad'
     ),
     (
-        'Princess',
-        'Daisy',
+        'Princess Daisy',
         'daisy@nintendo.com',
-        'test'
+        'luigi'
     ),
-    ('Donkey', 'Kong', 'donkey@nintendo.com', 'test');
+    ('Donkey Kong', 'donkey@nintendo.com', 'diddy');

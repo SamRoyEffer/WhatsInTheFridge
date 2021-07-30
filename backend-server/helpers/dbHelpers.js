@@ -22,10 +22,10 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const addUser = (firstName, lastName, email, password) => {
+  const addUser = (full_name, email, password) => {
     const query = {
-      text: `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *`,
-      values: [firstName, lastName, email, password],
+      text: `INSERT INTO users (full_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *`,
+      values: [full_name, email, password],
     };
 
     return db
@@ -34,9 +34,10 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  //change to getUsersItems or Food
   const getUsersPosts = () => {
     const query = {
-      text: `SELECT users.id as user_id, first_name, last_name, email, posts.id as post_id, title, content
+      text: `SELECT users.id as user_id, full_name, email, posts.id as post_id, title, content
       FROM users
       INNER JOIN posts
       ON users.id = posts.user_id`,
