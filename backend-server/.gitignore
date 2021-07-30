@@ -1,2 +1,5 @@
 /node_modules/
+
+/node_modules/setprototypeof/LICENSE
+/node_modules/setprototypeof/README.md
 .env
