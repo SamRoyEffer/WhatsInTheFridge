@@ -23,8 +23,8 @@ app.use(cors());
 app.use("/", indexRouter(router));
 app.use("/api/users", usersRouter(dbHelpers));
 
-app.listen(4000, () => {
-  console.log("Listen on port 4000");
-});
+// app.listen(4000, () => {
+//   console.log("Listen on port 4000");
+// });
 
 // module.exports = app;
