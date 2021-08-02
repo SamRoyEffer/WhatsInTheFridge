@@ -3,7 +3,7 @@ import "./App.css";
 import useApplicationData from "./hooks/useApplicationData";
 
 const App = () => {
-  const { state, dispatch } = useApplicationData();
+  const { state } = useApplicationData();
   const userList = state.users.map((user) => (
     <li key={user.id}>
       {" "}
