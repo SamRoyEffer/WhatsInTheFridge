@@ -27,4 +27,4 @@ app.use("/api/users", usersRouter(dbHelpers));
 //   console.log("Listen on port 4000");
 // });
 
-// module.exports = app;
+ module.exports = app;
