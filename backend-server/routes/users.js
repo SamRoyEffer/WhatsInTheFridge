@@ -2,7 +2,12 @@ const express = require("express");
 const router = express.Router();
 const { getPostsByUsers } = require("../helpers/dataHelpers");
 
-module.exports = ({ getUsers, getUserByEmail, addUser, getUsersPosts }) => {
+module.exports = ({
+  getUsers,
+  getUserByEmailAndPassword,
+  addUser,
+  getUsersFridge,
+}) => {
   /* GET users listing. */
   router.get("/", (req, res) => {
     getUsers()
@@ -15,7 +20,7 @@ module.exports = ({ getUsers, getUserByEmail, addUser, getUsersPosts }) => {
   });
 
   router.get("/posts", (req, res) => {
-    getUsersPosts()
+    getUsersFridge()
       .then((usersPosts) => {
         const formattedPosts = getPostsByUsers(usersPosts);
         res.json(formattedPosts);
@@ -27,10 +32,10 @@ module.exports = ({ getUsers, getUserByEmail, addUser, getUsersPosts }) => {
       );
   });
 
-  router.post("/", (req, res) => {
+  router.post("/register", (req, res) => {
     const { full_name, email, password } = req.body;
 
-    getUserByEmail(email)
+    getUserByEmailAndPassword(email, password)
       .then((user) => {
         if (user) {
           res.json({

@@ -35,12 +35,12 @@ module.exports = (db) => {
   };
 
   //change to getUsersItems or Food
-  const getUsersPosts = () => {
+  const getUsersFridge = () => {
     const query = {
-      text: `SELECT users.id as user_id, full_name, email, posts.id as post_id, title, content
+      text: `SELECT users.id as user_id, full_name, email, fridge.id as fridge_id
       FROM users
       INNER JOIN posts
-      ON users.id = posts.user_id`,
+      ON users.id = fridge.user_id`,
     };
 
     return db
@@ -64,7 +64,7 @@ module.exports = (db) => {
     getUsers,
     getUserByEmailAndPassword,
     addUser,
-    getUsersPosts,
+    getUsersFridge,
     saveUsersIngredients,
   };
 };
