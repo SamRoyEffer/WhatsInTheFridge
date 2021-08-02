@@ -8,10 +8,7 @@ const useApplicationData = () => {
     loading: true,
   });
   useEffect(() => {
-    axios({
-      method: "GET",
-      url: "/api/users",
-    })
+    Promise.all([axios.get("/api/users")])
       .then(({ data }) => {
         console.log(data);
         dispatch({
