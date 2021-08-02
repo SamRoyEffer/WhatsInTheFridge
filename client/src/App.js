@@ -1,21 +1,7 @@
 import "./App.css";
-import useApplicationData from "./hooks/useApplicationData";
-
+import Login from "./components/login";
 const App = () => {
-  const { state } = useApplicationData();
-  const userList = state.users.map((user) => (
-    <li key={user.id}>
-      {" "}
-      {user.first_name} {user.last_name} {user.email}{" "}
-    </li>
-  ));
-  return (
-    <div className="App">
-      <h1> Users </h1>
-
-      <ul> {userList} </ul>
-    </div>
-  );
+  return <Login />;
 };
 
 export default App;
