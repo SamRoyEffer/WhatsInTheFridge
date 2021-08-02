@@ -2,9 +2,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import Login from "./components/login";
 const App = () => {
-<<<<<<< HEAD
-  return <Login />;
-=======
   const { state } = useApplicationData();
   const userList = state.users.map((user) => (
     <li key={user.id}>
@@ -19,7 +16,6 @@ const App = () => {
       <ul> {userList} </ul>
     </div>
   );
->>>>>>> master
 };
 
 export default App;
