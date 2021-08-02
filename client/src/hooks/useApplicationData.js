@@ -7,6 +7,7 @@ const useApplicationData = () => {
     users: [],
     loading: true,
   });
+  
   useEffect(() => {
     axios({
       method: "GET",
