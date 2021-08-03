@@ -4,6 +4,7 @@ import Login from "./components/login";
 import Footer from "./components/Footer";
 import useApplicationData from "./hooks/useApplicationData";
 import Registration from "./components/Registration";
+import Header from "./components/Header";
 
 const App = () => {
   const { state } = useApplicationData();
@@ -15,13 +16,12 @@ const App = () => {
   ));
   return (
     <main id="App">
-      <h1> test page </h1>
+      <Header />
+
       <Registration />
-      <div id="footer">
-        <Footer />
-      </div>
 
       <ul> {userList} </ul>
+      <Footer />
     </main>
   );
 };

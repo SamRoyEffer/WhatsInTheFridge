@@ -1,13 +1,10 @@
 import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
-
+import "./Registration.scss";
 export default function Registration() {
   return (
     <main>
-      <Header />
       <div>
-        <form>
+        <form id="create-account">
           <label>
             Full Name
             <input type="text" name="fullName" />
@@ -20,7 +17,9 @@ export default function Registration() {
             Password
             <input type="text" name="Password" />
           </label>
-          <button type="submit">Create Account</button>
+          <button className="btn-create" type="submit">
+            Create Account
+          </button>
         </form>
       </div>
     </main>
