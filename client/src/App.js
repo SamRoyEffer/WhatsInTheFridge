@@ -15,7 +15,6 @@ const App = () => {
   return (
     <div className="App">
       <Homepage/>
-      App
     </div>
   );
 };
