@@ -28,7 +28,7 @@ const Ul = styled.ul`
     }
   }
 `;
-const BurgerOptions = ({ open }) => {
+export default function BurgerOptions ({ open }) {
   return (
     <Ul open={open}>
       <button className='navButton'>Login</button>
@@ -36,5 +36,3 @@ const BurgerOptions = ({ open }) => {
     </Ul>
   )
 }
-
-export default BurgerOptions

@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/Navbar"
+import Homepage from "./components/Homepage";
 import useApplicationData from "./hooks/useApplicationData";
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar/>
+      <Homepage/>
       App
     </div>
   );

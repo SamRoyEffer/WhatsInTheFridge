@@ -15,7 +15,7 @@ justify-content: space-between;
 }
 `;
  
-const Navbar = () => {
+export default function Navbar() {
   return (
     <Nav>
       <div className="logo projectName">
@@ -25,5 +25,3 @@ const Navbar = () => {
     </Nav>
   )
 }
-
-export default Navbar
