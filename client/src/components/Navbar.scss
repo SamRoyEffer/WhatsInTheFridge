@@ -1,0 +1,20 @@
+nav {
+  background-color: #FFC857;
+}
+
+.projectName{
+  display:  inline-block;
+  color: #fff; 
+  font-family: 'Righteous', cursive; 
+  font-size: 30px; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+  text-shadow: 2px 2px 0 #000; 
+  text-align: center; 
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-v2.png");
+  }
+}

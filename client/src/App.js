@@ -1,5 +1,5 @@
 import "./App.css";
-import "./App.scss";
+import Navbar from "./components/Navbar"
 import useApplicationData from "./hooks/useApplicationData";
 
 const App = () => {
@@ -14,15 +14,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <nav className="navTop">
-        <p className="projectName"> What's in the fridge? </p>
-        <p className="navButtonList">
-          <button className="navButton">Login</button>
-          <button className="navButton">Register</button>
-        </p>
-      </nav>
-
-      <ul> {userList} </ul>
+      <Navbar/>
+      App
     </div>
   );
 };

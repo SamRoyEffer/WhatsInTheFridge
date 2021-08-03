@@ -1,5 +1,6 @@
 .nav{
   background-color: #FFC857;
+  margin-block: 10px;
 
   &Top{
     display: flex;
@@ -9,9 +10,9 @@
   &Button{
     background-color: #2E4052;
     color: #FFFF;
-    height: 80%;
+    height: 25px;
     text-decoration: none;
-    line-height: 10px;
+    line-height: 0px;
     border-radius: 10%;
     text-transform: uppercase;
     transition: all 0.4s ease 0s;
@@ -29,17 +30,3 @@
     }
   }
 }
-
-.projectName{
-  display:  inline-block;
-  color: #fff; 
-  font-family: 'Righteous', cursive; 
-  font-size: 30px; 
-  font-weight: bold; 
-  margin: 10px 0 10px; 
-  text-transform: uppercase; 
-  text-shadow: 2px 2px 0 #000; 
-  margin: 10px 0 0px; 
-  text-align: center; 
-}
-
