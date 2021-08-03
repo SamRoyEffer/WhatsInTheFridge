@@ -4,12 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import AutoComplete from './components/auto_complete'
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <AutoComplete />
   </React.StrictMode>,
   document.getElementById('root')
 );
