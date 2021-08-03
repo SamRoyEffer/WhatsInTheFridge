@@ -5,11 +5,12 @@ export default function PhotoContainer(props) {
   
   const {photos} = props
 
-  if(photos.length > 0) {
-    console.log('photo image',photos)
+  //console.log('photo image',photos.image)
+  if(photos) {
+    //console.log('photo image',photos)
     return(
           <div>
-            <img src={photos} alt='new'></img>
+            <img src={photos.image} alt='new'></img>
           </div>
         )
       } else {
