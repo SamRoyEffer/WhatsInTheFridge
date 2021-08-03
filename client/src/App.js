@@ -1,6 +1,9 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import Login from "./components/login";
+import Footer from "./components/Footer";
+import useApplicationData from "./hooks/useApplicationData";
+
 const App = () => {
   const { state } = useApplicationData();
   const userList = state.users.map((user) => (
@@ -10,11 +13,15 @@ const App = () => {
     </li>
   ));
   return (
-    <div className="App">
+    <main id="App">
       <h1> test page </h1>
+      <Login />
+      <div id="footer">
+        <Footer />
+      </div>
 
       <ul> {userList} </ul>
-    </div>
+    </main>
   );
 };
 
