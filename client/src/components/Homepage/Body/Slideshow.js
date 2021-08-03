@@ -9,7 +9,7 @@ const randomNumber = () => {
 export default function Slideshow() {
   const [photos, getPhotos] = useState('');
 
-  const url = `https://api.spoonacular.com/recipes/${randomNumber()}/information?apiKey=de4608c7fbba484e981a793441c70c06`
+  const url = `https://api.spoonacular.com/recipes/${randomNumber()}/information?apiKey=`
 
   useEffect(() => {
     getAllPhotos();
