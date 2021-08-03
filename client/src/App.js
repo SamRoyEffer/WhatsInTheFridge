@@ -3,6 +3,7 @@ import "./App.scss";
 import Login from "./components/login";
 import Footer from "./components/Footer";
 import useApplicationData from "./hooks/useApplicationData";
+import Registration from "./components/Registration";
 
 const App = () => {
   const { state } = useApplicationData();
@@ -15,7 +16,7 @@ const App = () => {
   return (
     <main id="App">
       <h1> test page </h1>
-      <Login />
+      <Registration />
       <div id="footer">
         <Footer />
       </div>
