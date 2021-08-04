@@ -1,5 +1,7 @@
 import axios from "axios";
 import PhotoContainer from "./PhotoContainer";
+import { Carousel } from "react-bootstrap";
+
 import React, { useState, useEffect } from "react";
 
 const randomNumber = () => {
@@ -28,8 +30,30 @@ export default function Slideshow() {
 
   return (
     <section>
-    <p>Here are some photos</p>
+    <Carousel>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="holder.js/800x400?text=First slide&bg=373940"
+      alt="First slide"
+    />
     <PhotoContainer photos={photos}/>
+   
+  </Carousel.Item>
+
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="holder.js/800x400?text=Second slide&bg=282c34"
+      alt="Second slide"
+    />
+    <PhotoContainer photos={photos}/>
+  </Carousel.Item>
+
+</Carousel>
+  
+    
+   
     </section>
   )
 }

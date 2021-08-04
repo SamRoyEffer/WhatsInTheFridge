@@ -16,14 +16,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2*/}
-          <div className="col">
-            <h4>Services</h4>
-            <ul className="list-unstyled">
-              <li>API</li>
-              <li>Lorem ispum</li>
-            </ul>
-          </div>
 
           {/* Column 3*/}
           <div className="col">
@@ -32,6 +24,15 @@ export default function Footer() {
               <li>Email</li>
               <li>Phone</li>
               <li>Social</li>
+            </ul>
+          </div>
+
+          {/* Column 2*/}
+          <div className="col">
+            <h4>Services</h4>
+            <ul className="list-unstyled">
+              <li>API</li>
+              <li>Lorem ispum</li>
             </ul>
           </div>
           
