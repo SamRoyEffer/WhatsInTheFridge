@@ -16,8 +16,8 @@ export default function PhotoContainer(props) {
           <div className="slide">
             <img src={photos.image} alt='new'></img>
             <div className="info">
-              <h2>{photos.title}</h2>
-              <p>{photos.summary}</p>
+              <h2><span><a href={photos.sourceUrl}>{photos.title}</a></span></h2>
+              <div dangerouslySetInnerHTML={{ __html: photos.summary}}/>
             </div>
           </div>
 
