@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
+import debounce from 'lodash.debounce'
 // import match from 'autosuggest-highlight/match';
 // import parse from 'autosuggest-highlight/parse';
 
-const options = [
+const fakeData = [
   {
       "name": "apple",
       "image": "apple.jpg",
@@ -92,16 +93,25 @@ const AutoComplete = () => {
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
 
-const onChange = (e, { newValue }) => {
-  e.preventDefault();
-  setValue(newValue);
-  setSelectedSuggestion(null)
+const options = async (value) => {
+  let resolved = await fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=9768625974324441a01777879d94c9b2&query=${value}&number=5`)
+  .then((res) => {return res.json()})
+  return resolved
 };
 
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
+const debounceSave = useCallback(
+  debounce(newValue => getSuggestions(newValue), 500, console.log("this was called")), [],
+)
+
+const onChange = (e, { newValue }) => {
+  e.preventDefault();
+  setValue(newValue)
+  if (value !== newValue) {
+  debounceSave(newValue)
+  }
+};
+
   const onSuggestionsFetchRequested = ({ value }) => {
-    setSuggestion(getSuggestions(value));
   };
 
   // Autosuggest will call this function every time you need to clear suggestions.
@@ -115,25 +125,26 @@ const onChange = (e, { newValue }) => {
   };
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = value => {
+const getSuggestions = async (value) => {
+  console.log("inside get suggestions")
+  const option = await options(value).then((res) => {
+    console.log("++++", res)
+    setSuggestion(res)
+    // setValue(value);
+  })
+
+  
   const escapedValue = escapeRegexCharacters(value.trim());
 
   if (escapedValue === '') {
     return [];
   }
-
-  const regex = new RegExp(escapedValue, 'i');
-
-  const sortedByLength = options.sort((a, b) => {
-    return a.name.length - b.name.length;
-  });
-
-  return sortedByLength.filter(ingredient => regex.test(ingredient.name));
+  return option
 };
 
 
   const onSuggestionSelected = (e, { suggestion }) => {
-    setSelectedSuggestion(suggestion.id)
+    setSelectedSuggestion(suggestion)
 
     // const newIngredient = {
     //   id: Math.floor(Math.random() * 100000000),
@@ -151,8 +162,10 @@ const getSuggestionValue = suggestion => suggestion.name;
 // Use your imagination to render suggestions.
 const renderSuggestion = (suggestion) => {
   return (
-    <div className="">
+    <div >
+        <strong className="text-gray-600 font-normal" >
         {suggestion.name}
+        </strong>
     </div>
   );
 };
@@ -171,17 +184,13 @@ function renderSuggestionsContainer({ containerProps, children, query }) {
     onChange
   };
 
-  // let apiTest = fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=9768625974324441a01777879d94c9b2&query=appl&number=5`)
-  // .then((res) => res.json())
-  // .then((data) => {setState(data)})
-  // .catch(() => console.log("error"))
-
-      console.log("---", selectedSuggestion)
-      console.log("+++", suggestions)
+      // console.log("---", selectedSuggestion)
+      // console.log("+++", suggestions)
     // Finally, render it!
     return (
       <form className="w-full m-auto max-w-sm lg:max-w-md mb-4 relative">
       <Autosuggest
+        onChange={onChange}
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onSuggestionsClearRequested}
