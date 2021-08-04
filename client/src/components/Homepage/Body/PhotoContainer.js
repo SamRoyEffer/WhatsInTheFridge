@@ -4,26 +4,28 @@ export default function PhotoContainer(props) {
 
   const displayPhotos = (props) => {
 
+    console.log('props:', props)
+    const { recipe } = props
 
-    const { photos } = props
+    console.log('recipefromphotocontainer:',recipe)
+    if (recipe) {
+      //console.log('photo image',recipe)
+        return (
+          <div className="img-slider">
+  
+            <div className="slide">
+              <img src={recipe.image} alt='new'></img>
+              <div className="info">
+                <h2><span><a href={recipe.sourceUrl}>{recipe.title}</a></span></h2>
+                <div dangerouslySetInnerHTML={{ __html: recipe.summary}}/>
+              </div>
+            </div>  
 
-    //console.log('photo image',photos.image)
-    if (photos) {
-      //console.log('photo image',photos)
-      return (
-        <div className="img-slider">
-
-          <div className="slide">
-            <img src={photos.image} alt='new'></img>
-            <div className="info">
-              <h2><span><a href={photos.sourceUrl}>{photos.title}</a></span></h2>
-              <div dangerouslySetInnerHTML={{ __html: photos.summary}}/>
-            </div>
+        
           </div>
-
-         
-        </div>
-      )
+        )
+      
+      
     } else {
       return (<h3>No photos yet</h3>)
     }
