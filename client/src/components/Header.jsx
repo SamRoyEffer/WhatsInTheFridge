@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.scss";
 
 export default function Header() {
-  const userCookie = "Helloe";
+  const userCookie = "";
   return (
     <main id="head">
       <nav className="header-nav">
@@ -20,12 +20,26 @@ export default function Header() {
           </section>
         ) : (
           <section className="header">
-            <button type="submit" className="btn">
-              Login
-            </button>
-            <button type="submit" className="btn">
-              Home
-            </button>
+            <div className="homeBtn">
+              <button type="submit" className="btn">
+                Home
+              </button>
+            </div>
+            <div className="loginInput">
+              <input
+                type="text"
+                name="loginFormEmail"
+                placeholder="Email"
+              ></input>
+              <input
+                type="text"
+                name="loginFormPassword"
+                placeholder="Password"
+              ></input>
+              <button type="submit" className="btn">
+                Login
+              </button>
+            </div>
           </section>
         )}
       </nav>

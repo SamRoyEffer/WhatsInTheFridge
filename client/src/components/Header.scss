@@ -8,12 +8,8 @@
   display: flex;
   margin-top: 7px;
   margin-bottom: 7px;
-  justify-content: center;
-}
-.header {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
+  align-content: flex-start;
+  justify-content: space-between;
 }
 
 .btn {
@@ -26,6 +22,10 @@
   display: flex;
   font-size: 16px;
   border-radius: 12px;
+}
+.loginInput {
+  display: flex;
+  align-items: baseline;
 }
 
 @media (max-width: 450px) {
