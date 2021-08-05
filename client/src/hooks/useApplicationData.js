@@ -1,31 +1,23 @@
-import { useEffect, useReducer } from "react";
-import dataReducer, { SET_USERS } from "../reducer/dataReducer";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useApplicationData = () => {
-  const [state, dispatch] = useReducer(dataReducer, {
-    users: [],
-    loading: true,
-  });
-  useEffect(() => {
-    axios({
-      method: "GET",
-      url: "/api/users",
-    })
-      .then(({ data }) => {
-        console.log(data);
-        dispatch({
-          type: SET_USERS,
-          users: data,
-        });
-      })
-      .catch((err) => console.log(err));
-  }, []);
+const defaultState = {
+  ingredients: [],
+  recipies: [],
+  favRecipies: [],
+};
 
-  return {
-    state,
-    dispatch,
-  };
+const useApplicationData = () => {
+  const [state, setState] = useState(defaultState);
+
+  useEffect(() => {
+    Promise.all([axios.get("/api/fridge")]).then((all) => {
+      setState((prev) => ({
+        ...prev,
+        ingredients: all[0].data,
+      }));
+    });
+  }, []);
 };
 
 export default useApplicationData;

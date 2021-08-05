@@ -22,8 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/api", indexRouter(router));
-app.use("/api/users", usersRouter(dbHelpers));
-
+app.use("/api", fridgeRouter(db, router));
 // app.listen(4000, () => {
 //   console.log("Listen on port 4000");
 // });
