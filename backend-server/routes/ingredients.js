@@ -13,7 +13,7 @@ module.exports = function (db) {
     });
   });
 
-  router.post("/fridge", (req, res) => {
+  router.post("/ingredients", (req, res) => {
     db.query(`INSERT INTO ingredients(api_name) VALUES($1) RETURNING *`, [
       api_name,
     ])

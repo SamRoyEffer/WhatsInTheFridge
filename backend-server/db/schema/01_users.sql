@@ -8,19 +8,19 @@ CREATE TABLE "users" (
   "name" varchar
 );
 
-CREATE TABLE "fridge" (
-  "id" int PRIMARY KEY,
-  "ingredient_id" int
-);
 
 CREATE TABLE "ingredients" (
   "id" SERIAL PRIMARY KEY,
-  "api_name" varchar,
-  "fridge_id" int
+  "api_name" varchar
+  
+);
+CREATE TABLE "fridge" (
+  "id" int PRIMARY KEY,
+  "ingredient_id" int REFERENCES ingredients(id)
 );
 
 CREATE TABLE "recipes" (
   "id" SERIAL PRIMARY KEY,
   "api_recipe_id" int,
-  "user_id" int
+  "user_id" int REFERENCES users(id)
 );
