@@ -8,7 +8,9 @@ module.exports = function (db) {
   });
 
   router.get("/ingredients/:ingredientName", (req, res) => {
-    db.query(`SELECT name FROM ingredients WHERE name = $1`, []);
+    db.query(`SELECT * FROM ingredients WHERE name = $1`, []).then((res) => {
+      return res.rows[0];
+    });
   });
 
   router.post("/fridge", (req, res) => {
@@ -16,7 +18,7 @@ module.exports = function (db) {
       api_name,
     ])
       .then((res) => {
-        return res.row[0];
+        return res.rows[0];
       })
       .catch((err) => {
         console.log(err.message);
