@@ -9,6 +9,7 @@ const cors = require("cors");
 
 let indexRouter = require("./routes/index");
 let usersRouter = require("./routes/users");
+const fridgeRouter = require("./routes/fridge");
 const { allowedNodeEnvironmentFlags } = require("process");
 
 let app = express();
@@ -20,11 +21,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-app.use("/", indexRouter(router));
+app.use("/api", indexRouter(router));
 app.use("/api/users", usersRouter(dbHelpers));
 
 // app.listen(4000, () => {
 //   console.log("Listen on port 4000");
 // });
 
- module.exports = app;
+module.exports = app;

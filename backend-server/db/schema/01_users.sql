@@ -3,23 +3,16 @@ DROP TABLE IF EXISTS fridge CASCADE;
 DROP TABLE IF EXISTS ingredients CASCADE;
 DROP TABLE IF EXISTS recipes CASCADE;
 
-CREATE TABLE "users" (
-  "id" SERIAL PRIMARY KEY,
-  "full_name" varchar,
-  "email" varchar,
-  "password" varchar,
-  "created_at" timestamp,
-  "updated_at" timestamp
-);
+
 
 CREATE TABLE "fridge" (
   "id" int PRIMARY KEY,
-  "user_id" int
+  
 );
 
 CREATE TABLE "ingredients" (
   "id" SERIAL PRIMARY KEY,
-  "api_id" int,
+  "api_name" VARCHAR,
   "fridge_id" int
 );
 
