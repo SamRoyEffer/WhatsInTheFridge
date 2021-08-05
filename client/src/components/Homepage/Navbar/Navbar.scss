@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap');
+
 nav {
   background-color: #FFC857;
+  border-radius: 8px;
+  z-index:100000;
 }
 
 .projectName{
   display:  inline-block;
   color: #fff; 
-  font-family:fantasy; 
+  font-family: 'Oswald', sans-serif;
   font-size: 25px; 
   font-weight: bold; 
   text-transform: uppercase; 

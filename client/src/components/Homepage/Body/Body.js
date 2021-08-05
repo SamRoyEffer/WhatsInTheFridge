@@ -6,7 +6,7 @@ export default function Body() {
   return (
     <div className="body">
       <section className="bodyDescription">
-        <h3 className="body">Does Your Fridge Feel Empyt?</h3>
+        <h3 className="body">Does Your Fridge Feel Empty?</h3>
         <h5>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
           odio. Praesent libero. Vestibulum lacinia arcu eget nulla. Class

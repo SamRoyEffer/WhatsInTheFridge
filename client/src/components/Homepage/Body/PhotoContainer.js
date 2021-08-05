@@ -4,10 +4,10 @@ export default function PhotoContainer(props) {
 
   const displayPhotos = (props) => {
 
-    console.log('props:', props)
+    //console.log('props:', props)
     const { recipe } = props
 
-    console.log('recipefromphotocontainer:',recipe)
+    //console.log('recipefromphotocontainer:',recipe)
     if (recipe) {
       //console.log('photo image',recipe)
         return (
@@ -16,8 +16,8 @@ export default function PhotoContainer(props) {
             <div className="slide">
               <img src={recipe.image} alt='new'></img>
               <div className="info">
-                <h2><span><a href={recipe.sourceUrl}>{recipe.title}</a></span></h2>
-                <div dangerouslySetInnerHTML={{ __html: recipe.summary}}/>
+                <h2><span><a href={recipe.sourceUrl}>{recipe.title}{recipe.id}</a></span></h2>
+                
               </div>
             </div>  
 
