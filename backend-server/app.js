@@ -10,6 +10,7 @@ const cors = require("cors");
 let indexRouter = require("./routes/index");
 let usersRouter = require("./routes/users");
 const fridgeRouter = require("./routes/fridge");
+const ingredientsRoute = require("./routes/ingredients");
 const { allowedNodeEnvironmentFlags } = require("process");
 
 let app = express();
@@ -23,6 +24,7 @@ app.use(cors());
 
 app.use("/api", indexRouter(router));
 app.use("/api", fridgeRouter(db, router));
+app.use("/api", ingredientsRoute(dd, router));
 // app.listen(4000, () => {
 //   console.log("Listen on port 4000");
 // });

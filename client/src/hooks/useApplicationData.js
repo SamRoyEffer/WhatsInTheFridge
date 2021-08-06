@@ -11,7 +11,12 @@ const useApplicationData = () => {
   const [state, setState] = useState(defaultState);
 
   useEffect(() => {
-    Promise.all([axios.get("/api/fridge")]).then((all) => {
+    Promise.all([
+      axios.get("/api/fridge"),
+      axios.get("/api/recipe"),
+      axios.get("/api/ingredients"),
+      axios.get("/api/ingredients/:ingredientName"),
+    ]).then((all) => {
       setState((prev) => ({
         ...prev,
         ingredients: all[0].data,

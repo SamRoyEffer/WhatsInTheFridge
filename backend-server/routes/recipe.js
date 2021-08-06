@@ -13,7 +13,7 @@ module.exports = function (db) {
     });
   });
 
-  router.post("/recipe", (req, res) => {
+  router.post("/recipe_add", (req, res) => {
     db.query(
       `INSERT INTO recipes(api_recipe_id, user_id) VALUES ($1, $2) RETURNING *`,
       []
@@ -22,5 +22,8 @@ module.exports = function (db) {
     });
   });
 
+  router.post("/recipe_delete", (req, res) => {
+    db.query(`DELET FROM recipes WHERE id = $1`, []);
+  });
   return router;
 };

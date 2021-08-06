@@ -13,7 +13,7 @@ module.exports = function (db) {
     });
   });
 
-  router.post("/ingredients", (req, res) => {
+  router.post("/ingredients_add", (req, res) => {
     db.query(`INSERT INTO ingredients(api_name) VALUES($1) RETURNING *`, [
       api_name,
     ])
@@ -23,6 +23,10 @@ module.exports = function (db) {
       .catch((err) => {
         console.log(err.message);
       });
+  });
+
+  router.post("/ingredients_delete", (req, res) => {
+    db.query(`DELETE FROM ingredients WHERE name = $1`, []);
   });
 
   return router;
