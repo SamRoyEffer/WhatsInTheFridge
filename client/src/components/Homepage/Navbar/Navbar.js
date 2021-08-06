@@ -9,7 +9,6 @@ height: 50px;
 border-bottom: 2px solid #f1f1f1;
 display: flex;
 justify-content: space-between;
-
 .logo {
   padding: 15px 0;
 }
@@ -19,7 +18,7 @@ export default function Navbar() {
   return (
     <Nav>
       <div className="logo projectName">
-        What's in the Fridge?
+        What's in the Fridge? <img className='fridgeIcon' src='icons/mini.png' alt='fridge-icon'/>
       </div>
       <Burger />
     </Nav>

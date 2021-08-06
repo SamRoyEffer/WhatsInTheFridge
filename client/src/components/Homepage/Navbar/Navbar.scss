@@ -3,6 +3,14 @@
 nav {
   background-color: #FFC857;
   border-radius: 8px;
+  &Button{
+    margin-bottom: 0rem;
+  }
+}
+
+.fridgeIcon {
+  height: 30px;
+  margin-bottom: 10px;
 }
 
 .projectName{
@@ -14,6 +22,8 @@ nav {
   text-transform: uppercase; 
   text-shadow: 2px 2px 0 #000; 
   text-align: center; 
+  
+ 
 }
 
 @media only screen and (min-width: 1024px) {

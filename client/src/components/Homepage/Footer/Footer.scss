@@ -1,6 +1,8 @@
 .main-footer{
     background-color: #FFC857;
     border-radius: 8px;
+    color:white;
+    text-shadow: 0.5px 0.5px #000000;
  }
 Title{
     color: #fff;  
@@ -11,6 +13,7 @@ Title{
 .footer{
   &-copyright{
     font-size: 15px;
+   
   }
 }
 
