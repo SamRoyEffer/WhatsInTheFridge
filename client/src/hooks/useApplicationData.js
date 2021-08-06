@@ -3,8 +3,7 @@ import axios from "axios";
 
 const defaultState = {
   ingredients: {},
-  recipies: [],
-  favRecipies: [],
+  recepies: [],
 };
 
 const useApplicationData = () => {
@@ -12,7 +11,6 @@ const useApplicationData = () => {
 
   useEffect(() => {
     Promise.all([
-      //axios.get("http://localhost:3001/api/fridge"),
       axios.get("http://localhost:3001/api/recipe"),
       //axios.get("http://localhost:3001/api/ingredients"),
     ]).then((all) => {
@@ -20,8 +18,7 @@ const useApplicationData = () => {
       setState((prev) => ({
         //...prev,
         //ingredients: all[2].data,
-        //recipies: all[1].data,
-        //favRecipies: all[0].data,
+        //recepies: all[1].data,
       }));
     });
   }, []);
@@ -39,7 +36,22 @@ const useApplicationData = () => {
         });
       });
   }
-  return { submitIngredient, state };
+
+  function submitRecipe(recipe) {
+    return axios
+      .put("http://localhost:3001/api/recipe_add", recipe)
+      .then(() => {
+        const newRecipe = state.includes(recipe);
+        if (newRecipe) {
+          return;
+        }
+        setState({
+          ...state,
+          recepies: [...state.recepies, recipe],
+        });
+      });
+  }
+  return { submitIngredient, state, submitRecipe };
 };
 
 export default useApplicationData;
