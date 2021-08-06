@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const defaultState = {
-  ingredients: [],
+  ingredients: {},
   recipies: [],
   favRecipies: [],
 };
@@ -15,14 +15,13 @@ const useApplicationData = () => {
       axios.get("/api/fridge"),
       axios.get("/api/recipe"),
       axios.get("/api/ingredients"),
-      axios.get("/api/ingredients/:ingredientName"),
     ]).then((all) => {
-      setState((prev) => ({
-        ...prev,
-        ingredients: all[0].data,
-      }));
+      setState((prev) => ({}));
     });
   }, []);
+  function submitIngredient(ingredient) {
+    return axios.put("/api/ingredients").then(() => {});
+  }
 };
 
 export default useApplicationData;
