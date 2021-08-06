@@ -8,9 +8,9 @@ const dbHelpers = require("./helpers/dbHelpers")(db);
 const cors = require("cors");
 
 let indexRouter = require("./routes/index");
-let usersRouter = require("./routes/users");
 const fridgeRouter = require("./routes/fridge");
 const ingredientsRoute = require("./routes/ingredients");
+const recipeRoute = require("./routes/recipe");
 const { allowedNodeEnvironmentFlags } = require("process");
 
 let app = express();
@@ -19,12 +19,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/api", indexRouter(router));
 app.use("/api", fridgeRouter(db, router));
-app.use("/api", ingredientsRoute(dd, router));
+app.use("/api", ingredientsRoute(db, router));
+app.use("/api", recipeRoute(db, router));
 // app.listen(4000, () => {
 //   console.log("Listen on port 4000");
 // });

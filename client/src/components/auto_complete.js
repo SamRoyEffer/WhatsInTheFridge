@@ -4,11 +4,11 @@ import debounce from "lodash.debounce";
 import useApplicationData from "../hooks/useApplicationData";
 
 const AutoComplete = () => {
-  const [submitIngredient] = useApplicationData();
+  const { submitIngredient, state } = useApplicationData();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
-
+  console.log("STATE", state);
   const options = async (value) => {
     let resolved = await fetch(
       `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=8a5caab478484b4798b15918420d1e5e&query=${value}&number=5`
@@ -98,7 +98,7 @@ const AutoComplete = () => {
       {selectedSuggestion ? (
         <button
           type="submit"
-          submitIngredient={submitIngredient(selectedSuggestion)}
+          onClick={() => submitIngredient(selectedSuggestion)}
         >
           Add
         </button>
