@@ -15,6 +15,7 @@ code {
 /* auto suggest */
 .react-autosuggest__container {
   position: relative;
+  width: 30%;
 }
 
 .react-autosuggest__input--open {
@@ -45,10 +46,12 @@ code {
   display: block;
   position: absolute;
   width: 100%;
-  border-width: 1px;
-  border-color: #FFC857;
+  border-width: 4px;
+  border-color: #000;
   background-color: #BDD9BF;
   z-index: 10;
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
 }
 
 .react-autosuggest__input--open {
@@ -62,8 +65,14 @@ code {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   cursor: pointer;
+  border: #000, 3px, solid;
 }
 
 .react-autosuggest__suggestion--highlighted {
   background-color: #FFC857;
+}
+
+.autosuggest {
+  display: flex;
+  justify-content: center;
 }

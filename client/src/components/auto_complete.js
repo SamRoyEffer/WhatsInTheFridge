@@ -1,92 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
 import debounce from 'lodash.debounce'
-// import match from 'autosuggest-highlight/match';
-// import parse from 'autosuggest-highlight/parse';
-
-const fakeData = [
-  {
-      "name": "apple",
-      "image": "apple.jpg",
-      "id": 9003,
-      "aisle": "Produce",
-      "possibleUnits": [
-          "small",
-          "large",
-          "piece",
-          "slice",
-          "g",
-          "extra small",
-          "medium",
-          "oz",
-          "cup slice",
-          "cup",
-          "serving"
-      ]
-  },
-  {
-      "name": "applesauce",
-      "image": "applesauce.png",
-      "id": 9019,
-      "aisle": "Canned and Jarred",
-      "possibleUnits": [
-          "g",
-          "oz",
-          "cup",
-          "serving",
-          "tablespoon"
-      ]
-  },
-  {
-      "name": "apple juice",
-      "image": "apple-juice.jpg",
-      "id": 9016,
-      "aisle": "Beverages",
-      "possibleUnits": [
-          "g",
-          "drink box",
-          "fl oz",
-          "oz",
-          "teaspoon",
-          "cup",
-          "serving",
-          "tablespoon"
-      ]
-  },
-  {
-      "name": "apple cider",
-      "image": "apple-cider.jpg",
-      "id": 1009016,
-      "aisle": "Beverages",
-      "possibleUnits": [
-          "g",
-          "drink box",
-          "fl oz",
-          "oz",
-          "teaspoon",
-          "bottle NFS",
-          "cup",
-          "serving",
-          "tablespoon"
-      ]
-  },
-  {
-      "name": "apple jelly",
-      "image": "apple-jelly.jpg",
-      "id": 10019297,
-      "aisle": "Nut butters, Jams, and Honey",
-      "possibleUnits": [
-          "g",
-          "oz",
-          "packet",
-          "teaspoon",
-          "cup",
-          "serving",
-          "tablespoon"
-      ]
-  },
-]
-
 
 const AutoComplete = () => {
   const [value, setValue] = useState('');
@@ -127,19 +41,11 @@ const onChange = (e, { newValue }) => {
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = async (value) => {
   console.log("inside get suggestions")
-  const option = await options(value).then((res) => {
+    await options(value).then((res) => {
     console.log("++++", res)
+    // const escapedValue = escapeRegexCharacters(res.name.trim())
     setSuggestion(res)
-    // setValue(value);
   })
-
-  
-  const escapedValue = escapeRegexCharacters(value.trim());
-
-  if (escapedValue === '') {
-    return [];
-  }
-  return option
 };
 
 
@@ -188,7 +94,7 @@ function renderSuggestionsContainer({ containerProps, children, query }) {
       // console.log("+++", suggestions)
     // Finally, render it!
     return (
-      <form className="w-full m-auto max-w-sm lg:max-w-md mb-4 relative">
+      <form className="autosuggest">
       <Autosuggest
         onChange={onChange}
         suggestions={suggestions}
