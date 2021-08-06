@@ -15,7 +15,7 @@ module.exports = function (db) {
 
   router.post("/recipe", (req, res) => {
     db.query(
-      `INSERT INTO recipes(api_recipe_id) VALUES ($1) RETURNING *`,
+      `INSERT INTO recipes(api_recipe_id, user_id) VALUES ($1, $2) RETURNING *`,
       []
     ).then((res) => {
       return res.row[0];
