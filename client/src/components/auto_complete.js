@@ -8,13 +8,13 @@ const AutoComplete = () => {
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
 
 const options = async (value) => {
-  let resolved = await fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=9768625974324441a01777879d94c9b2&query=${value}&number=5`)
+  let resolved = await fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=8a5caab478484b4798b15918420d1e5e&query=${value}&number=5`)
   .then((res) => {return res.json()})
   return resolved
 };
 
 const debounceSave = useCallback(
-  debounce(newValue => getSuggestions(newValue), 500, console.log("this was called")), [],
+  debounce(newValue => getSuggestions(newValue), 500), []
 )
 
 const onChange = (e, { newValue }) => {
@@ -23,6 +23,7 @@ const onChange = (e, { newValue }) => {
   if (value !== newValue) {
   debounceSave(newValue)
   }
+  setSelectedSuggestion(null)
 };
 
   const onSuggestionsFetchRequested = ({ value }) => {
@@ -31,7 +32,6 @@ const onChange = (e, { newValue }) => {
   // Autosuggest will call this function every time you need to clear suggestions.
   const onSuggestionsClearRequested = () => {
     setSuggestion([]);
-    // setSelectedSuggestion(null)
   };
 
   const escapeRegexCharacters = str => {
@@ -40,23 +40,16 @@ const onChange = (e, { newValue }) => {
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = async (value) => {
-  console.log("inside get suggestions")
-    await options(value).then((res) => {
-    console.log("++++", res)
-    // const escapedValue = escapeRegexCharacters(res.name.trim())
+  const option = await options(value).then((res) => {
     setSuggestion(res)
   })
+  return option
 };
 
 
   const onSuggestionSelected = (e, { suggestion }) => {
     setSelectedSuggestion(suggestion)
-
-    // const newIngredient = {
-    //   id: Math.floor(Math.random() * 100000000),
-    //   value: suggestionValue
-    // };
-    // setValue('');
+    setValue(suggestion.name)
   };
 
 
@@ -90,8 +83,6 @@ function renderSuggestionsContainer({ containerProps, children, query }) {
     onChange
   };
 
-      // console.log("---", selectedSuggestion)
-      // console.log("+++", suggestions)
     // Finally, render it!
     return (
       <form className="autosuggest">
@@ -100,6 +91,7 @@ function renderSuggestionsContainer({ containerProps, children, query }) {
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onSuggestionsClearRequested}
+        focusInputOnSuggestionClick={false}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}

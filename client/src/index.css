@@ -15,7 +15,6 @@ code {
 /* auto suggest */
 .react-autosuggest__container {
   position: relative;
-  width: 30%;
 }
 
 .react-autosuggest__input--open {
@@ -73,6 +72,5 @@ code {
 }
 
 .autosuggest {
-  display: flex;
-  justify-content: center;
+  width: 50%;
 }

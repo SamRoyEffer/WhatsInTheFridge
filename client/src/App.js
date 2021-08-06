@@ -1,6 +1,6 @@
 import "./App.css";
 import useApplicationData from "./hooks/useApplicationData";
-// import AutoComplete from './components/auto_complete'
+import AutoComplete from './components/auto_complete'
 import Recipes from "./components/recipes";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
       <h1> test page </h1>
 
       <ul> {userList} </ul>
-      {/* <AutoComplete/> */}
+      <AutoComplete/>
       <Recipes/>
     </div>
   );
