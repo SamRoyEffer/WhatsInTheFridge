@@ -9,25 +9,44 @@ const mockIngredientList = [
 ]
 
 
-const Recipes = (props) => {
+const Recipes = (recipeData) => {
+  const {
+    image,
+    title,
+    extendedIngredients,
+    analyzedInstructions,
+    sourceUrl,
+    creditsText,
+  } = recipeData;
+
   const [recipeList, setRecipeList] = useState([])
 
-  const options = async (value) => {
-    let resolved = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=9768625974324441a01777879d94c9b2&ignorePantry=true&ingredients=${value}&ranking=2&number=5`)
-    .then((res) => {console.log("%%%", res.json); return res.json()})
-    console.log("---", resolved)
-    return resolved;
-  };
-
+  // parse the received ingredients
   let ingredients = mockIngredientList.map((ingredient) => ingredient.name)
 
-  const callRecipies = async () => {
-    await setRecipeList(options(ingredients))
-    console.log(recipeList)
+  const options = async (value) => {
+    let resolved = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?includeNutrition=false&apiKey=8a5caab478484b4798b15918420d1e5e&ignorePantry=true&ingredients=${value}&ranking=2&number=5`)
+    return resolved.json();
+  };
+
+
+  const callRecipies = () => {
+    const foobar = options(ingredients)
+    foobar.then((res) => {
+      setRecipeList(res)
+    })
+
+    console.log("###", recipeList);
   }
+
+  // console.log(recipeList)
   
   return (
     <div>
+      <img src={image} alt={title}/>
+      <h2>{title}</h2>
+      <a href={sourceUrl}>{creditsText}</a>
+
       <button onClick={callRecipies}>generate</button>
     </div>
   )
