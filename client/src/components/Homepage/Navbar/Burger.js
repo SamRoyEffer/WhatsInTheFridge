@@ -37,7 +37,7 @@ const StyledBurger = styled.div`
     }
   }
 `;
-export default function Burger() {
+export default function Burger(props) {
 
   const [open, setOpen] = useState(false)
   
@@ -48,7 +48,7 @@ export default function Burger() {
       <div />
       <div />
     </StyledBurger>
-    <BurgerOptions open={open}/>
+    <BurgerOptions open={open} {...props}/>
   </>
   )
   };

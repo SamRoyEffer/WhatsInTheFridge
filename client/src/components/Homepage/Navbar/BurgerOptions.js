@@ -32,11 +32,14 @@ const Ul = styled.ul`
     }
   }
 `;
-export default function BurgerOptions ({ open }) {
+
+
+export default function BurgerOptions ({ open, props }) {
   return (
     <Ul open={open}>
-      <button className='navButton'>Login</button>
-      <button className='navButton'>Register</button>
+      <button className='navButton'>Home</button>
+      <button className='navButton' onClick={() => props.onFridge} >Fridge</button>
+      <button className='navButton'>Logout</button>
     </Ul>
   )
 }

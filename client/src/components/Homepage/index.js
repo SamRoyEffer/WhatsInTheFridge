@@ -5,10 +5,10 @@ import Footer from './Footer/Footer';
 
 
 
-export default function Homepage() {
+export default function Homepage(props) {
   return (
     <div>
-    <Navbar/>
+    <Navbar {...props}/>
     <Body/>
     <Footer/>
     </div>

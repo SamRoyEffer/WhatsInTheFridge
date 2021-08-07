@@ -14,13 +14,13 @@ justify-content: space-between;
 }
 `;
  
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <Nav>
       <div className="logo projectName">
         What's in the Fridge? <img className='fridgeIcon' src='icons/mini.png' alt='fridge-icon'/>
       </div>
-      <Burger />
+      <Burger {...props}/>
     </Nav>
   )
 }
