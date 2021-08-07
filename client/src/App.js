@@ -12,7 +12,7 @@ export default function App(props) {
   const HOME = "HOME";
   const FRIDGE = "FRIDGE";
   
-  const loginPage = () => {
+  const fridgePage = () => { 
     transition(FRIDGE);
   }
 
@@ -25,7 +25,7 @@ export default function App(props) {
 
   return (
     <div className="App">
-      {mode === HOME && <Homepage onFridge={loginPage()} />}
+      {mode === HOME && <Homepage onFridge={fridgePage}/>}
       {mode === FRIDGE && <AutoComplete/>}
     </div>
   );

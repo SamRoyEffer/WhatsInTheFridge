@@ -15,6 +15,7 @@ justify-content: space-between;
 `;
  
 export default function Navbar(props) {
+  console.log('propsfromnaavbar',props)
   return (
     <Nav>
       <div className="logo projectName">

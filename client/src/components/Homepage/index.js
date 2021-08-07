@@ -6,6 +6,7 @@ import Footer from './Footer/Footer';
 
 
 export default function Homepage(props) {
+  console.log('propsfromindex',props)
   return (
     <div>
     <Navbar {...props}/>

@@ -34,11 +34,13 @@ const Ul = styled.ul`
 `;
 
 
-export default function BurgerOptions ({ open, props }) {
+export default function BurgerOptions ({ open, ...props }) {
+  console.log('propsfromburgeroptions:',{...props})
+  props = {...props}.onFridge
   return (
     <Ul open={open}>
       <button className='navButton'>Home</button>
-      <button className='navButton' onClick={() => props.onFridge} >Fridge</button>
+      <button className='navButton' onClick={props} >Fridge</button>
       <button className='navButton'>Logout</button>
     </Ul>
   )
