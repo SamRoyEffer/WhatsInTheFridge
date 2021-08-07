@@ -12,34 +12,34 @@ const useApplicationData = () => {
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:3001/api/recipe"),
-      //axios.get("http://localhost:3001/api/ingredients"),
+      axios.get("http://localhost:3001/api/ingredients"),
     ]).then((all) => {
       console.log("ALLL", all);
       setState((prev) => ({
-        //...prev,
-        //ingredients: all[2].data,
-        //recepies: all[1].data,
+        ...prev,
+        ingredients: all[1].data,
+        // recepies: all[1].data,
       }));
     });
   }, []);
   function submitIngredient(ingredient) {
-    return axios
-      .put("http://localhost:3001/api/ingredients", ingredient)
-      .then(() => {
-        const newIngredient = state.includes(ingredient);
-        if (newIngredient) {
-          return;
-        }
-        setState({
-          ...state,
-          ingredients: [...state.ingredients, ingredient],
-        });
-      });
+    axios.post("http://localhost:3001/api/ingredients", ingredient);
+    // .then((res) => {
+    //   console.log("NEW", res);
+    //   const sameIngredientExists = state.ingredients.includes(ingredient);
+    //   if (sameIngredientExists) {
+    //     return;
+    //   }
+    //   setState({
+    //     ...state,
+    //     ingredients: [...state.ingredients, ingredient],
+    //   });
+    // });
   }
 
   function submitRecipe(recipe) {
     return axios
-      .put("http://localhost:3001/api/recipe_add", recipe)
+      .post("http://localhost:3001/api/recipe_add", recipe)
       .then(() => {
         const newRecipe = state.includes(recipe);
         if (newRecipe) {
@@ -51,7 +51,7 @@ const useApplicationData = () => {
         });
       });
   }
-  return { submitIngredient, state, submitRecipe };
+  return [submitIngredient, state, submitRecipe];
 };
 
 export default useApplicationData;
