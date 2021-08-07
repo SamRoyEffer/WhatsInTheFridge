@@ -1,22 +1,23 @@
-const router = require("express").Router();
+module.exports = function (db, router) {
+  router.post("/ingredients", (req, res) => {
+    const body = req.body;
 
-module.exports = function (db) {
-  router.get("/ingredients", (req, res) => {
-    db.query(`SELECT * FROM ingredients`).then((response) => {
-      return res.json(response.row[0]);
-    });
-  });
-
-  router.post("/ingredients_add", (req, res) => {
-    db.query(`INSERT INTO ingredients(api_name) VALUES($1) RETURNING *`, [
-      api_name,
-    ])
+    db.query(
+      `INSERT INTO ingredients(api_name, ing_image) VALUES($1, $2) RETURNING *`,
+      [body.name, body.image]
+    )
       .then((response) => {
-        return res.json(response.row[0]);
+        return res.json(response.rows[0]);
       })
       .catch((err) => {
         console.log(err.message);
       });
+  });
+  router.get("/ingredients", (req, res) => {
+    db.query(`SELECT * FROM ingredients`).then((response) => {
+      console.log("LLLLLL", response);
+      return res.json(response.rows);
+    });
   });
 
   router.post("/ingredients_delete", (req, res) => {

@@ -1,4 +1,3 @@
-DROP TABLE users CASCADE;
 DROP TABLE IF EXISTS fridge CASCADE;
 DROP TABLE IF EXISTS ingredients CASCADE;
 DROP TABLE IF EXISTS recipes CASCADE;
@@ -7,7 +6,8 @@ DROP TABLE IF EXISTS recipes CASCADE;
 
 CREATE TABLE "ingredients" (
   "id" SERIAL PRIMARY KEY,
-  "api_name" varchar
+  "api_name" varchar,
+  "ing_image" VARCHAR
   
 );
 CREATE TABLE "fridge" (

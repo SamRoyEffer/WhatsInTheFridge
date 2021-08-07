@@ -7,7 +7,6 @@ module.exports = function (db, router) {
       .catch((err) => {
         console.log(err.message);
       });
-    res.json(["cow", "meat", "burger"]);
   });
 
   router.post("/recipe_add", (req, res) => {
