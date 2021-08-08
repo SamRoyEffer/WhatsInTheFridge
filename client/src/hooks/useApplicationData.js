@@ -36,6 +36,9 @@ const useApplicationData = () => {
           ...state,
           ingredients: [...state.ingredients, ingredient],
         });
+      })
+      .catch((err) => {
+        console.log("ERROR", err);
       });
   }
 

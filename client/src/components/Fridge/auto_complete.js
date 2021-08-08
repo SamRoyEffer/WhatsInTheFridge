@@ -95,7 +95,10 @@ const AutoComplete = () => {
       {selectedSuggestion ? (
         <button
           type="submit"
-          onClick={() => submitIngredient(selectedSuggestion)}
+          onClick={(event) => {
+            event.preventDefault();
+            submitIngredient(selectedSuggestion);
+          }}
         >
           Add
         </button>
