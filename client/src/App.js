@@ -14,8 +14,6 @@ const App = () => {
   return (
     <div className="App">
       <h1> test page </h1>
-
-      <ul> {userList} </ul>
       <AutoComplete/>
       <Recipes/>
     </div>

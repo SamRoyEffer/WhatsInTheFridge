@@ -34,10 +34,6 @@ const onChange = (e, { newValue }) => {
     setSuggestion([]);
   };
 
-  const escapeRegexCharacters = str => {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  };
-
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = async (value) => {
   const option = await options(value).then((res) => {
