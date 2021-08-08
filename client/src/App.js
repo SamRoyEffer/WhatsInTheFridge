@@ -16,19 +16,12 @@ export default function App(props) {
     transition(FRIDGE);
   }
 
-  const userList = state.users.map((user) => (
-    <li key={user.id}>
-      {" "}
-      {user.full_name} {user.email}{" "}
-    </li>
-  ));
 
   return (
     <div className="App">
       {mode === HOME && <Homepage onFridge={fridgePage}/>}
       {mode === FRIDGE && <AutoComplete/>}
+
     </div>
   );
-};
-
-
+}

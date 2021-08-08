@@ -35,7 +35,7 @@ const Ul = styled.ul`
 
 
 export default function BurgerOptions ({ open, ...props }) {
-  console.log('propsfromburgeroptions:',{...props})
+  //console.log('propsfromburgeroptions:',{...props})
   props = {...props}.onFridge
   return (
     <Ul open={open}>

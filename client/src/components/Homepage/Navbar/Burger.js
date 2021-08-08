@@ -40,7 +40,7 @@ const StyledBurger = styled.div`
 export default function Burger(props) {
 
   const [open, setOpen] = useState(false)
-  console.log('propsfromburger',props)
+  //console.log('propsfromburger',props)
   
   return (
     <>
