@@ -3,7 +3,7 @@ section {
 }
 .recipeContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,8 @@ section {
   overflow: hidden;
   position: relative;
   // padding-bottom: 66.666667%;
-  width: 50vmin;
-  height: 40vmin;
+  width: 30vmin;
+  height: 30vmin;
 }
 
 

@@ -1,3 +1,11 @@
-.autosuggest h2 {
-  position: relative;
+.autosuggest {
+  width: 90%;
+  display:block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom:50px;
+  & h2 {
+    position: relative;
+  }
 }

@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
 import debounce from 'lodash.debounce';
-import auto_complete from './auto_complete.scss';
+import './auto_complete.scss';
 
 const AutoComplete = () => {
   const [value, setValue] = useState('');

@@ -1,0 +1,16 @@
+.fridge{
+  display:flex; 
+  flex-direction:row;
+}
+
+.recipesContainer{
+ align-items: center;
+}
+
+.autocompleteContainer{
+  background-image: url('./Ice_Border_Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-style: solid;
+  border-radius: 1px;
+}
