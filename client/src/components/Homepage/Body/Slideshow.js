@@ -15,7 +15,7 @@ export default function Slideshow() {
   const [recipe1, setRecipe1] = useState([]);
   const [recipe2, setRecipe2] = useState([]);
 
-  const randomRecipe1 = `https://api.spoonacular.com/recipes/1415/information?apiKey=de4608c7fbba484e981a793441c70c06`
+  const randomRecipe1 = `https://api.spoonacular.com/recipes/1423/information?apiKey=de4608c7fbba484e981a793441c70c06`
   const randomRecipe2 = `https://api.spoonacular.com/recipes/5251/information?apiKey=de4608c7fbba484e981a793441c70c06`
 
 
