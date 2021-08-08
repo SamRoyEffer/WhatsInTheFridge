@@ -1,6 +1,13 @@
+<<<<<<< HEAD:client/src/components/auto_complete.js
 import React, { useState, useCallback } from "react";
 import Autosuggest from "react-autosuggest";
 import debounce from "lodash.debounce";
+=======
+import React, {useState, useCallback} from 'react';
+import Autosuggest from 'react-autosuggest';
+import debounce from 'lodash.debounce';
+import auto_complete from './auto_complete.scss';
+>>>>>>> master:client/src/components/Fridge/auto_complete.js
 
 const AutoComplete = () => {
   const [submitIngredient] = useApplicationData();

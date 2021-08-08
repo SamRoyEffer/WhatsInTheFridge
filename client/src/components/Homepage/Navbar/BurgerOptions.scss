@@ -1,0 +1,34 @@
+.nav{
+  background-color: #FFC857;
+  margin-block: 10px;
+
+  &Top{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &Button{
+    background-color: #FFC870;
+    color: #FFFF;
+    height: 25px;
+    text-decoration: none;
+    line-height: 0px;
+    border-radius: 10%;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+    text-shadow: 0.5px 0px #000000;
+   
+
+    &List{
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+
+    &:hover {
+      text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      transition: all 0.4s ease 0s;
+    }
+  }
+}
