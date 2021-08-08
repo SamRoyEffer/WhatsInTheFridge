@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 import React, { useState, useCallback } from "react";
 import Autosuggest from "react-autosuggest";
 import debounce from "lodash.debounce";
-import useApplicationData from "../hooks/useApplicationData";
-=======
-import React, {useState, useCallback} from 'react';
-import Autosuggest from 'react-autosuggest';
-import debounce from 'lodash.debounce'
->>>>>>> master
 
 const AutoComplete = () => {
   const [submitIngredient] = useApplicationData();
@@ -45,11 +38,6 @@ const AutoComplete = () => {
     setSuggestion([]);
   };
 
-<<<<<<< HEAD
-  const escapeRegexCharacters = (str) => {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  };
-
   // Teach Autosuggest how to calculate suggestions for any given input value.
   const getSuggestions = async (value) => {
     const option = await options(value).then((res) => {
@@ -57,16 +45,6 @@ const AutoComplete = () => {
     });
     return option;
   };
-=======
-// Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = async (value) => {
-  const option = await options(value).then((res) => {
-    setSuggestion(res)
-  })
-  return option
-};
-
->>>>>>> master
 
   const onSuggestionSelected = (e, { suggestion }) => {
     setSelectedSuggestion(suggestion);
@@ -97,15 +75,9 @@ const getSuggestions = async (value) => {
     onChange,
   };
 
-<<<<<<< HEAD
   // Finally, render it!
   return (
-    <form className="w-full m-auto max-w-sm lg:max-w-md mb-4 relative">
-=======
-    // Finally, render it!
-    return (
-      <form className="autosuggest">
->>>>>>> master
+    <form className="autosuggest">
       <Autosuggest
         onChange={onChange}
         suggestions={suggestions}
