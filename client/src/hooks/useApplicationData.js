@@ -23,18 +23,20 @@ const useApplicationData = () => {
     });
   }, []);
   function submitIngredient(ingredient) {
-    axios.post("http://localhost:3001/api/ingredients", ingredient);
-    // .then((res) => {
-    //   console.log("NEW", res);
-    //   const sameIngredientExists = state.ingredients.includes(ingredient);
-    //   if (sameIngredientExists) {
-    //     return;
-    //   }
-    //   setState({
-    //     ...state,
-    //     ingredients: [...state.ingredients, ingredient],
-    //   });
-    // });
+    console.log("HIT ME");
+    axios
+      .post("http://localhost:3001/api/ingredients", ingredient)
+      .then((res) => {
+        console.log("NEW", res);
+        const sameIngredientExists = state.ingredients.includes(ingredient);
+        if (sameIngredientExists) {
+          return;
+        }
+        setState({
+          ...state,
+          ingredients: [...state.ingredients, ingredient],
+        });
+      });
   }
 
   function submitRecipe(recipe) {

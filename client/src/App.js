@@ -1,10 +1,8 @@
 import "./App.css";
 import { React } from "react";
 import Homepage from "./components/Homepage";
-import AutoComplete from "./components/Fridge/auto_complete";
 import useApplicationData from "./hooks/useApplicationData";
 import useVisualMode from "./hooks/useVisualMode";
-import Recipes from "./components/Fridge/recipes";
 import Fridge from "./components/Fridge/index";
 
 export default function App(props) {
@@ -20,9 +18,6 @@ export default function App(props) {
 
   return (
     <div className="App">
-      <h1> test page </h1>
-      <AutoComplete />
-      <Recipes />
       <div className="App">
         {mode === HOME && <Homepage onFridge={fridgePage} />}
         {mode === FRIDGE && <Fridge />}

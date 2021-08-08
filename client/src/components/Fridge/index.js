@@ -4,8 +4,8 @@ import Recipes from "./recipes";
 export default function Fridge() {
   return (
     <div>
-      <AutoComplete/>
-      <Recipes/>
+      <AutoComplete />
+      <Recipes />
     </div>
-  )
+  );
 }
