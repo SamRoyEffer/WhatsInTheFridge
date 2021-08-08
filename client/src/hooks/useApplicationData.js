@@ -7,16 +7,8 @@ const defaultState = {
 };
 
 const useApplicationData = () => {
-<<<<<<< HEAD
   const [state, setState] = useState(defaultState);
 
-=======
-  const [state, dispatch] = useReducer(dataReducer, {
-    users: [],
-    loading: true,
-  });
-  
->>>>>>> master
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:3001/api/recipe"),
