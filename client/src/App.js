@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage";
 import AutoComplete from './components/auto_complete'
 import useApplicationData from "./hooks/useApplicationData";
 import useVisualMode from "./hooks/useVisualMode";
+import Recipes from "./components/recipes";
 
 export default function App(props) {
   const { state } = useApplicationData();
@@ -20,8 +21,7 @@ export default function App(props) {
   return (
     <div className="App">
       {mode === HOME && <Homepage onFridge={fridgePage}/>}
-      {mode === FRIDGE && <AutoComplete/>}
-
+      {mode === FRIDGE && <AutoComplete/> && <Recipes/>}
     </div>
   );
 }

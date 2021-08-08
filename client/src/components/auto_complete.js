@@ -2,7 +2,6 @@ import React, {useState, useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
 import debounce from 'lodash.debounce'
 
-
 const AutoComplete = () => {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestion] = useState([]);
@@ -33,10 +32,6 @@ const onChange = (e, { newValue }) => {
   // Autosuggest will call this function every time you need to clear suggestions.
   const onSuggestionsClearRequested = () => {
     setSuggestion([]);
-  };
-
-  const escapeRegexCharacters = str => {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   };
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
@@ -86,7 +81,7 @@ function renderSuggestionsContainer({ containerProps, children, query }) {
 
     // Finally, render it!
     return (
-      <form className="w-full m-auto max-w-sm lg:max-w-md mb-4 relative">
+      <form className="autosuggest">
       <Autosuggest
         onChange={onChange}
         suggestions={suggestions}
