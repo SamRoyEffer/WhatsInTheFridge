@@ -10,9 +10,9 @@ export default function IngredientList(props) {
       <h2>testing ingredients list</h2>
       <p>
         {state.ingredients
-          ? state.ingredients.map((ingredient) => {
+          ? state.ingredients.map((ingredient, i) => {
               return (
-                <div>
+                <div key={i}>
                   <p>{ingredient.name}</p>
                 </div>
               );
