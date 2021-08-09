@@ -21,8 +21,8 @@ export default function Slideshow() {
 
   const getAllRecipes = () => {
     axios.all([
-      //axios.get(randomRecipe1),
-      //axios.get(randomRecipe2)
+      axios.get(randomRecipe1),
+      axios.get(randomRecipe2)
     //Promise.resolve(axios.get(randomRecipe2)),
     ])
       .then((all) => {
@@ -45,13 +45,10 @@ export default function Slideshow() {
     <section>
     <Carousel>
   <Carousel.Item>
-   
     <PhotoContainer  recipe={recipe1} />
-   
   </Carousel.Item>
 
   <Carousel.Item>
-  
     <PhotoContainer recipe={recipe2}/>
   </Carousel.Item>
 

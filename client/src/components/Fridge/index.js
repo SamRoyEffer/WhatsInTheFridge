@@ -2,8 +2,11 @@ import AutoComplete from "./auto_complete";
 import Recipes from "./recipes";
 import './Fridge.scss';
 import Navbar from "../Homepage/Navbar/Navbar";
+import IngredientList from "./ingredientList";
+import useApplicationData from "../../hooks/useApplicationData";
 
 export default function Fridge() {
+  const { state } = useApplicationData();
   return (
     <section>
     <nav>
@@ -16,7 +19,7 @@ export default function Fridge() {
         <AutoComplete />
     </div>
       </div>
-
+      <IngredientList />
       <div className='recipesContainer'>
         <Recipes />
       </div>
@@ -24,3 +27,4 @@ export default function Fridge() {
     </section>
     )
     }
+
