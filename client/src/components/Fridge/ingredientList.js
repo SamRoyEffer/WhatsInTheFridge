@@ -11,9 +11,9 @@ export default function IngredientList(props) {
       
       <p>
         {state.ingredients
-          ? state.ingredients.map((ingredient) => {
+          ? state.ingredients.map((ingredient, i) => {
               return (
-                <div className="ingreList">
+                <div key={i} className="ingreList">
                   <p>{ingredient.name}</p>
                 </div>
               );

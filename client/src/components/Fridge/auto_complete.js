@@ -107,7 +107,7 @@ const AutoComplete = () => {
             Add
           </button>
         ) : (
-          <h2>please use selected suggestion</h2>
+          <h2>What's in your fridge?</h2>
         )}
       </form>
       <div>

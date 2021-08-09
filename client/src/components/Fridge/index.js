@@ -19,7 +19,7 @@ export default function Fridge() {
         <AutoComplete />
     </div>
       </div>
-      <IngredientList />
+
       <div className='recipesContainer'>
         <Recipes />
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from "react";
 import "./recipes.scss";
 import { Button } from "react-bootstrap";
+import useApplicationData from "../../hooks/useApplicationData";
 
 const mockIngredientList = [
   { name: "celery" },
@@ -9,10 +10,11 @@ const mockIngredientList = [
   { name: "peppers" },
   { name: "onion" },
   { name: "cheese" },
-  { name: "bread" }
+  { name: "bread" },
 ];
 
 const Recipes = () => {
+  const { state } = useApplicationData();
   const [recipeList, setRecipeList] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState(null);
 
@@ -30,7 +32,7 @@ const Recipes = () => {
   };
 
   // parse the received ingredients
-  let ingredients = mockIngredientList.map((ingredient) => ingredient.name);
+  let ingredients = state.ingredients.map((ingredient) => ingredient.name);
 
   const options = async (value) => {
     let resolved = await fetch(
@@ -48,36 +50,34 @@ const Recipes = () => {
 
   // console.log(recipeList)
 
-
-
   return (
     <Fragment className="componentContainer">
       <div className="buttonDiv">
         <Button variant="info" onClick={callRecipies}>Generate</Button>{' '}
       </div>
-    <div className="recipeContainer">
-      {recipeList.map((recipe, i) => {
-        return (
-          <div className="recipe" onClick={() => selectRecipe(recipe.id)}>
-            <div className="imageContainer" >
-              <img
-                className="recipeImage margin-hate"
-                src={recipe.image}
-                alt={recipe.title}
-                key={i}
-              />
+      <div className="recipeContainer">
+        {recipeList.map((recipe, i) => {
+          return (
+            <div className="recipe" onClick={() => window.open((recipe.id))}>
+              <div className="imageContainer">
+                <img
+                  className="recipeImage margin-hate"
+                  src={recipe.image}
+                  alt={recipe.title}
+                  key={i}
+                />
+              </div>
+              <div className="textContainer">
+                <h2 className="recipeTitle">{recipe.title}</h2>
+                {recipe.missedIngredientCount ? (
+                  <p className="missingAmmount">
+                    Missing ingredients: <b>{recipe.missedIngredientCount}</b>
+                  </p>
+                ) : null}
+              </div>
             </div>
-            <img src='./heart.png' alt='heart'/>
-            <div className="textContainer" >
-              
-              <h2 className="recipeTitle" >{recipe.title}</h2>
-              {recipe.missedIngredientCount ? <p className="missingAmmount" >Missing ingredients: <b>{recipe.missedIngredientCount}</b></p> : null }
-              
-            </div>
-          </div>
-          
-        );
-      })}
+          );
+        })}
       </div>
     </Fragment>
   );
