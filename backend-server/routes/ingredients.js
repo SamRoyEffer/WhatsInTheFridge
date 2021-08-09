@@ -3,7 +3,7 @@ module.exports = function (db, router) {
     const body = req.body;
 
     db.query(
-      `INSERT INTO ingredients(api_name, ing_image) VALUES($1, $2) RETURNING *`,
+      `INSERT INTO ingredients(name, ing_image) VALUES($1, $2) RETURNING *`,
       [body.name, body.image]
     )
       .then((response) => {

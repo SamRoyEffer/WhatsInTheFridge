@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS recipes CASCADE;
 
 CREATE TABLE "ingredients" (
   "id" SERIAL PRIMARY KEY,
-  "api_name" varchar,
+  "name" varchar,
   "ing_image" VARCHAR
   
 );

@@ -7,13 +7,7 @@ export default function Body() {
     <div className="body">
       <section className="bodyDescription">
         <h3 className="body">Does Your Fridge Feel Empty?</h3>
-        <h5>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-          odio. Praesent libero. Vestibulum lacinia arcu eget nulla. Class
-          aptent taciti sociosqu ad litora torquent per conubia nostra, per
-          inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim
-          lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.{" "}
-        </h5>
+        <h5>Welcome Back Hungry! </h5>
       </section>
       <section>
         <Slideshow />

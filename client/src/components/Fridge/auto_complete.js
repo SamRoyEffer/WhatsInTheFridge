@@ -3,9 +3,11 @@ import Autosuggest from "react-autosuggest";
 import debounce from "lodash.debounce";
 import "./auto_complete.scss";
 import useApplicationData from "../../hooks/useApplicationData";
+// import { loadIngredients } from "../../helper/helpers";
+// import { sortedLastIndex } from "lodash";
 
 const AutoComplete = () => {
-  const [submitIngredient] = useApplicationData();
+  const { submitIngredient } = useApplicationData();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
@@ -79,33 +81,35 @@ const AutoComplete = () => {
 
   // Finally, render it!
   return (
-    <form className="autosuggest">
-      <Autosuggest
-        onChange={onChange}
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        focusInputOnSuggestionClick={false}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-        renderSuggestionsContainer={renderSuggestionsContainer}
-        onSuggestionSelected={onSuggestionSelected}
-      />
-      {selectedSuggestion ? (
-        <button
-          type="submit"
-          onClick={(event) => {
-            event.preventDefault();
-            submitIngredient(selectedSuggestion);
-          }}
-        >
-          Add
-        </button>
-      ) : (
-        <h2>please use selected suggestion</h2>
-      )}
-    </form>
+    <section>
+      <form className="autosuggest">
+        <Autosuggest
+          onChange={onChange}
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
+          focusInputOnSuggestionClick={false}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
+          renderSuggestionsContainer={renderSuggestionsContainer}
+          onSuggestionSelected={onSuggestionSelected}
+        />
+        {selectedSuggestion ? (
+          <button
+            type="submit"
+            onClick={(event) => {
+              event.preventDefault();
+              submitIngredient(selectedSuggestion);
+            }}
+          >
+            Add
+          </button>
+        ) : (
+          <h2>please use selected suggestion</h2>
+        )}
+      </form>
+    </section>
   );
 };
 

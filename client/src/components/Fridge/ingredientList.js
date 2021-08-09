@@ -1,0 +1,24 @@
+import React, { createElement } from "react";
+import useApplicationData from "../../hooks/useApplicationData";
+
+export default function IngredientList(props) {
+  const { state } = useApplicationData();
+
+  return (
+    <div className="ingredientList">
+      {console.log("STATE", state)}
+      <h2>testing ingredients list</h2>
+      <p>
+        {state.ingredients
+          ? state.ingredients.map((ingredient) => {
+              return (
+                <div>
+                  <p>{ingredient.name}</p>
+                </div>
+              );
+            })
+          : null}
+      </p>
+    </div>
+  );
+}

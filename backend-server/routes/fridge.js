@@ -10,9 +10,7 @@ module.exports = function (db) {
   });
 
   router.post("/fridge_adding", (req, res) => {
-    db.query(`INSERT INTO ingredients(api_name) VALUES($1) RETURNING *`, [
-      api_name,
-    ])
+    db.query(`INSERT INTO ingredients(name) VALUES($1) RETURNING *`, [name])
       .then((response) => {
         return res.json(response.row[0]);
       })
