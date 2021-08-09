@@ -2,7 +2,7 @@ import React, {useState, useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
 import debounce from 'lodash.debounce';
 import './auto_complete.scss';
-import "./auto_complete.scss";
+import IngredientList from './ingredientList';
 import useApplicationData from "../../hooks/useApplicationData";
 // import { loadIngredients } from "../../helper/helpers";
 // import { sortedLastIndex } from "lodash";
@@ -110,6 +110,9 @@ const AutoComplete = () => {
           <h2>please use selected suggestion</h2>
         )}
       </form>
+      <div>
+        <IngredientList/>
+      </div>
     </section>
   );
 };

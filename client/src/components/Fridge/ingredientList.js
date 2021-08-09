@@ -1,5 +1,6 @@
 import React, { createElement } from "react";
 import useApplicationData from "../../hooks/useApplicationData";
+import './ingreList.scss'
 
 export default function IngredientList(props) {
   const { state } = useApplicationData();
@@ -7,12 +8,12 @@ export default function IngredientList(props) {
   return (
     <div className="ingredientList">
       {console.log("STATE", state)} 
-      <h2>testing ingredients list</h2>
+      
       <p>
         {state.ingredients
           ? state.ingredients.map((ingredient) => {
               return (
-                <div>
+                <div className="ingreList">
                   <p>{ingredient.name}</p>
                 </div>
               );
