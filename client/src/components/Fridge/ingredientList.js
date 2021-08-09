@@ -6,7 +6,7 @@ export default function IngredientList(props) {
 
   return (
     <div className="ingredientList">
-      {console.log("STATE", state)}
+      {console.log("STATE", state)} 
       <h2>testing ingredients list</h2>
       <p>
         {state.ingredients
