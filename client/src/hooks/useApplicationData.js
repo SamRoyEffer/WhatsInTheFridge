@@ -28,44 +28,29 @@ const useApplicationData = () => {
     const newState = state;
     newState.ingredients.push(ingredient);
     setState({ ...newState });
- 
-    return state;   
-    // setState({
-    //   ...state,
-    //   ingredients: [...state.ingredients, ingredient],
-    // });
-    // return axios
-    //   .post("http://localhost:3001/api/ingredients", ingredient)
-    //   .then((res) => {
-    //     console.log("NEW+++++++++", res);
-    //     const sameIngredientExists = state.ingredients.includes(ingredient);
-    //     if (sameIngredientExists) {
-    //       return null;
-    //     }
-    //     setState({
-    //       ...state,
-    //       ingredients: [...state.ingredients, ingredient],
-    //     });
-    //     return res;
-    //   })
-    //   .catch((err) => {
-    //     console.log("ERROR", err);
-    //   });
+    const sameIngredientExists = state.ingredients.includes(ingredient);
+    if (sameIngredientExists) {
+      return null;
+    }
+    axios
+      .post("http://localhost:3001/api/ingredients", ingredient)
+      .catch((err) => {
+        console.log("ERROR", err);
+      });
+    return state;
   };
 
   function submitRecipe(recipe) {
-    return axios
-      .post("http://localhost:3001/api/recipe_add", recipe)
-      .then(() => {
-        const newRecipe = state.includes(recipe);
-        if (newRecipe) {
-          return;
-        }
-        setState({
-          ...state,
-          recepies: [...state.recepies, recipe],
-        });
-      });
+    console.log("HIT ME");
+    const newState = state;
+    newState.recepies.push(recipe);
+    setState({ ...newState });
+    const newRecipe = state.includes(recipe);
+    if (newRecipe) {
+      return;
+    }
+    axios.post("http://localhost:3001/api/recipe_add", recipe);
+    return state;
   }
   return { submitIngredient, state, submitRecipe };
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./recipes.scss";
+import useApplicationData from "../../hooks/useApplicationData";
 
 const mockIngredientList = [
   { name: "celery" },
@@ -8,10 +9,11 @@ const mockIngredientList = [
   { name: "peppers" },
   { name: "onion" },
   { name: "cheese" },
-  { name: "bread" }
+  { name: "bread" },
 ];
 
 const Recipes = () => {
+  const { state } = useApplicationData();
   const [recipeList, setRecipeList] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState(null);
 
@@ -29,7 +31,7 @@ const Recipes = () => {
   };
 
   // parse the received ingredients
-  let ingredients = mockIngredientList.map((ingredient) => ingredient.name);
+  let ingredients = state.ingredients.map((ingredient) => ingredient.name);
 
   const options = async (value) => {
     let resolved = await fetch(
@@ -47,32 +49,34 @@ const Recipes = () => {
 
   // console.log(recipeList)
 
-
-
   return (
     <section>
       <div>
         <button onClick={callRecipies}>generate</button>
       </div>
       <div className="recipeContainer">
-      {recipeList.map((recipe, i) => {
-        return (
-          <div className="recipe" onClick={() => selectRecipe(recipe.id)}>
-            <div className="imageContainer" >
-              <img
-                className="recipeImage margin-hate"
-                src={recipe.image}
-                alt={recipe.title}
-                key={i}
-              />
+        {recipeList.map((recipe, i) => {
+          return (
+            <div className="recipe" onClick={() => selectRecipe(recipe.id)}>
+              <div className="imageContainer">
+                <img
+                  className="recipeImage margin-hate"
+                  src={recipe.image}
+                  alt={recipe.title}
+                  key={i}
+                />
+              </div>
+              <div className="textContainer">
+                <h2 className="recipeTitle">{recipe.title}</h2>
+                {recipe.missedIngredientCount ? (
+                  <p className="missingAmmount">
+                    Missing ingredients: <b>{recipe.missedIngredientCount}</b>
+                  </p>
+                ) : null}
+              </div>
             </div>
-            <div className="textContainer" >
-              <h2 className="recipeTitle" >{recipe.title}</h2>
-              {recipe.missedIngredientCount ? <p className="missingAmmount" >Missing ingredients: <b>{recipe.missedIngredientCount}</b></p> : null }
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
       </div>
     </section>
   );
