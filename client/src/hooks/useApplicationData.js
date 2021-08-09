@@ -28,11 +28,12 @@ const useApplicationData = () => {
     const newState = state;
     newState.ingredients.push(ingredient);
     setState({ ...newState });
+ 
+    return state;   
     // setState({
     //   ...state,
     //   ingredients: [...state.ingredients, ingredient],
     // });
-    return state;
     // return axios
     //   .post("http://localhost:3001/api/ingredients", ingredient)
     //   .then((res) => {
