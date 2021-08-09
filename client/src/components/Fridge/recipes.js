@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./recipes.scss";
+import { Button } from "react-bootstrap";
 
 const mockIngredientList = [
   { name: "celery" },
@@ -50,11 +51,11 @@ const Recipes = () => {
 
 
   return (
-    <section>
-      <div>
-        <button onClick={callRecipies}>generate</button>
+    <Fragment className="componentContainer">
+      <div className="buttonDiv">
+        <Button variant="info" onClick={callRecipies}>Generate</Button>{' '}
       </div>
-      <div className="recipeContainer">
+    <div className="recipeContainer">
       {recipeList.map((recipe, i) => {
         return (
           <div className="recipe" onClick={() => selectRecipe(recipe.id)}>
@@ -66,15 +67,19 @@ const Recipes = () => {
                 key={i}
               />
             </div>
+            <img src='./heart.png' alt='heart'/>
             <div className="textContainer" >
+              
               <h2 className="recipeTitle" >{recipe.title}</h2>
               {recipe.missedIngredientCount ? <p className="missingAmmount" >Missing ingredients: <b>{recipe.missedIngredientCount}</b></p> : null }
+              
             </div>
           </div>
+          
         );
       })}
       </div>
-    </section>
+    </Fragment>
   );
 };
 

@@ -10,7 +10,7 @@ import Fridge from "./components/Fridge/index"
 export default function App(props) {
   const { state } = useApplicationData();
 
-  const {mode, transition} = useVisualMode('HOME') 
+  const {mode, transition} = useVisualMode('FRIDGE') //Change back to HOME
   const HOME = "HOME";
   const FRIDGE = "FRIDGE";
   

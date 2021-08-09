@@ -82,6 +82,7 @@ function renderSuggestionsContainer({ containerProps, children, query }) {
 
     // Finally, render it!
     return (
+      
       <form className="autosuggest">
       <Autosuggest
         onChange={onChange}

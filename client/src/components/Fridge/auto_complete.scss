@@ -13,6 +13,9 @@
   outline: none solid 20px;
   background-color: #68BBE3;
   & h2 {
-    position: relative;
+    position: static;
+    margin-bottom: 12px;
+
   }
 }
+
