@@ -24,35 +24,37 @@ const useApplicationData = () => {
   }, []);
 
   const submitIngredient = (ingredient) => {
-    console.log("HIT ME");
-    const newState = state;
-    newState.ingredients.push(ingredient);
-    setState({ ...newState });
-    const sameIngredientExists = state.ingredients.includes(ingredient);
-    if (sameIngredientExists) {
-      return null;
-    }
     axios
       .post("http://localhost:3001/api/ingredients", ingredient)
+      .then((res) => {
+        console.log("NEW", res);
+        // const sameIngredientExists = state.ingredients.includes(ingredient);
+        // if (sameIngredientExists) {
+        //   return;
+        // }
+        setState((prev) => ({
+          ...prev,
+          ingredients: [...prev.ingredients, res.data],
+        }));
+      })
       .catch((err) => {
         console.log("ERROR", err);
       });
-    return state;
   };
 
-  function submitRecipe(recipe) {
-    console.log("HIT ME");
-    const newState = state;
-    newState.recepies.push(recipe);
-    setState({ ...newState });
-    const newRecipe = state.includes(recipe);
-    if (newRecipe) {
-      return;
-    }
-    axios.post("http://localhost:3001/api/recipe_add", recipe);
-    return state;
-  }
-  return { submitIngredient, state, submitRecipe };
+  // function submitRecipe(recipe) {
+  //   console.log("HIT ME");
+  //   const newState = state;
+  //   newState.recepies.push(recipe);
+  //   setState({ ...newState });
+  //   const newRecipe = state.includes(recipe);
+  //   if (newRecipe) {
+  //     return;
+  //   }
+  //   axios.post("http://localhost:3001/api/recipe_add", recipe);
+  //   return state;
+  // }
+  return { submitIngredient, state };
 };
 
 export default useApplicationData;

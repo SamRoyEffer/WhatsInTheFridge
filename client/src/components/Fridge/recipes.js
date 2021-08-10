@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import "./recipes.scss";
 import { Button } from "react-bootstrap";
 import useApplicationData from "../../hooks/useApplicationData";
@@ -51,14 +51,16 @@ const Recipes = () => {
   // console.log(recipeList)
 
   return (
-    <Fragment className="componentContainer">
+    <section>
       <div className="buttonDiv">
-        <Button variant="info" onClick={callRecipies}>Generate</Button>{' '}
+        <Button variant="info" onClick={callRecipies}>
+          Generate
+        </Button>{" "}
       </div>
       <div className="recipeContainer">
         {recipeList.map((recipe, i) => {
           return (
-            <div className="recipe" onClick={() => window.open((recipe.id))}>
+            <div className="recipe" onClick={() => window.open(recipe.id)}>
               <div className="imageContainer">
                 <img
                   className="recipeImage margin-hate"
@@ -79,7 +81,7 @@ const Recipes = () => {
           );
         })}
       </div>
-    </Fragment>
+    </section>
   );
 };
 

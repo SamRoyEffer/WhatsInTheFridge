@@ -1,6 +1,7 @@
 module.exports = function (db, router) {
   router.post("/ingredients", (req, res) => {
     const body = req.body;
+    console.log("BODY", body);
 
     db.query(
       `INSERT INTO ingredients(name, ing_image) VALUES($1, $2) RETURNING *`,

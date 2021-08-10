@@ -1,21 +1,21 @@
-import React, {useState, useCallback} from 'react';
-import Autosuggest from 'react-autosuggest';
-import debounce from 'lodash.debounce';
-import './auto_complete.scss';
-import IngredientList from './ingredientList';
+import React, { useState, useCallback } from "react";
+import Autosuggest from "react-autosuggest";
+import debounce from "lodash.debounce";
+import "./auto_complete.scss";
+import IngredientList from "./ingredientList";
 import useApplicationData from "../../hooks/useApplicationData";
 // import { loadIngredients } from "../../helper/helpers";
 // import { sortedLastIndex } from "lodash";
 
 const AutoComplete = () => {
-  const { submitIngredient } = useApplicationData();
+  const { submitIngredient, state } = useApplicationData();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
 
   const options = async (value) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=9768625974324441a01777879d94c9b2&query=${value}&number=5`
+      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=8a5caab478484b4798b15918420d1e5e&query=${value}&number=5`
     ).then((res) => {
       return res.json();
     });
@@ -111,7 +111,7 @@ const AutoComplete = () => {
         )}
       </form>
       <div>
-        <IngredientList/>
+        <IngredientList ingredients={state.ingredients} />
       </div>
     </section>
   );

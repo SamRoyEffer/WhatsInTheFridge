@@ -1,17 +1,17 @@
 import React, { createElement } from "react";
 import useApplicationData from "../../hooks/useApplicationData";
-import './ingreList.scss'
+import "./ingreList.scss";
 
 export default function IngredientList(props) {
   const { state } = useApplicationData();
 
   return (
     <div className="ingredientList">
-      {console.log("STATE", state)} 
-      
-      <p>
-        {state.ingredients
-          ? state.ingredients.map((ingredient, i) => {
+      {console.log("STATE", state)}
+
+      <div>
+        {props.ingredients.length
+          ? props.ingredients.map((ingredient, i) => {
               return (
                 <div key={i} className="ingreList">
                   <p>{ingredient.name}</p>
@@ -19,7 +19,7 @@ export default function IngredientList(props) {
               );
             })
           : null}
-      </p>
+      </div>
     </div>
   );
 }
