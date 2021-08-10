@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
 .body {
   background-color: #dd7230;
   color:#fff;
@@ -26,7 +27,12 @@
 }
 
 .slideshow{
-
+  font-family: 'Anton', sans-serif;
+  font-weight: bold;
+  &Text{
+    font-size: 3vw;
+    
+  }
 }
 
 .mainImage span { 
@@ -43,9 +49,12 @@
   justify-content: space-evenly;
   opacity:0.8; 
   font-size: 21vw;
+  font-family: 'Cairo', sans-serif;
   &Element{
     line-height: 5vh;
     font-size: 2vw;
+    
+    
   }
 }
 
@@ -57,4 +66,9 @@
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 1s;
   -webkit-transition: all 1s;
+  font-family: 'Cairo', sans-serif;
+  & h5{
+    font-size: 2vw;
+    
+    }
 }
