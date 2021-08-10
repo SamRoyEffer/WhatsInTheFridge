@@ -3,16 +3,6 @@ import "./recipes.scss";
 import { Button } from "react-bootstrap";
 import useApplicationData from "../../hooks/useApplicationData";
 
-const mockIngredientList = [
-  { name: "celery" },
-  { name: "chicken" },
-  { name: "beef" },
-  { name: "peppers" },
-  { name: "onion" },
-  { name: "cheese" },
-  { name: "bread" },
-];
-
 const Recipes = () => {
   const { state } = useApplicationData();
   const [recipeList, setRecipeList] = useState([]);
