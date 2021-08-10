@@ -1,11 +1,7 @@
-// section {
-//   margin-top: 25px;
-// }
+
 .componentContainer{
   position: absolute;
 }
-
-
 
 .recipeContainer {
   display: flex;
@@ -13,11 +9,10 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  //background-image: url('./wooden-textured-background.jpg');
   z-index: +2;
   position: relative;
-  height: 100vh;
-  width: 65vw;
+  height: 100%;
+  width: 100%;
   margin-top: 5%;
 }
 
@@ -74,10 +69,12 @@
 }
 
 .recipeTitle {
-  margin-bottom: 5px;  
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .missingAmmount {
-  margin-top: 250px;
+  display: flex;
+  justify-content: center;
   z-index: +2;
 }

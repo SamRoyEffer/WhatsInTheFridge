@@ -16,7 +16,7 @@ const AutoComplete = () => {
 
   const options = async (value) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=9768625974324441a01777879d94c9b2&query=${value}&number=5`
+      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=8a5caab478484b4798b15918420d1e5e&query=${value}&number=5`
     ).then((res) => {
       return res.json();
     });
@@ -85,6 +85,7 @@ const AutoComplete = () => {
   return (
     <section>
       <form className="autosuggest">
+        <h3><b>Ingredient Search:</b></h3>
         <Autosuggest
           onChange={onChange}
           suggestions={suggestions}
@@ -99,6 +100,7 @@ const AutoComplete = () => {
         />
         {selectedSuggestion ? (
           <Button
+          className="addButton"
           variant="secondary"
             type="submit"
             onClick={(event) => {
@@ -110,9 +112,7 @@ const AutoComplete = () => {
           >
             Add
           </Button>
-        ) : (
-          <h2>What's in your fridge?</h2>
-        )}
+        ) : null }
       </form>
       <div>
         <IngredientList/>
