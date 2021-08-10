@@ -23,14 +23,6 @@ const useApplicationData = () => {
   }, []);
 
   const submitIngredient = (ingredient) => {
-    console.log("HIT ME");
-    const newState = state;
-    newState.ingredients.push(ingredient);
-    setState({ ...newState });
-    const sameIngredientExists = state.ingredients.includes(ingredient.name);
-    if (sameIngredientExists) {
-      return null;
-    }
     axios
       .post("http://localhost:3001/api/ingredients", ingredient)
       .then((res) => {
