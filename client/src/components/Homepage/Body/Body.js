@@ -19,12 +19,12 @@ export default function Body() {
           <h3 className='prosElement'>Find recipes easily</h3>
         </div>
 
-        <div>
-          <h5>Do you ever just open your fridge wishing food would magically appear? Well this app doesn't help with that but it does help with finding recipes with the foods you already have. Make recipes with whatever you got in the fridge! </h5>
-        </div>
+       
 
       </section>
-
+      <div className='bodyParagraph'>
+          <h5>Do you ever just open your fridge wishing food would magically appear? Well this app doesn't help with that but it does help with finding recipes with the foods you already have. Make recipes with whatever you got in the fridge! </h5>
+        </div>
       <section className='slideshow'>
       <h3 className='slideshowText'>Checkout the Popular Recipes below! </h3>
 

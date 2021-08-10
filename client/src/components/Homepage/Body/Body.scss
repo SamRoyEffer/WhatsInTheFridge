@@ -48,3 +48,13 @@
     font-size: 2vw;
   }
 }
+
+.bodyParagraph{
+  width:90%;
+  margin-right: auto;
+  margin-left: auto;
+  filter: alpha(opacity=50);
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 1s;
+  -webkit-transition: all 1s;
+}
