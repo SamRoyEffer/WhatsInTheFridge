@@ -28,7 +28,7 @@ const useApplicationData = () => {
     const newState = state;
     newState.ingredients.push(ingredient);
     setState({ ...newState });
-    const sameIngredientExists = state.ingredients.includes(ingredient);
+    const sameIngredientExists = state.ingredients.includes(ingredient.name);
     if (sameIngredientExists) {
       return null;
     }
