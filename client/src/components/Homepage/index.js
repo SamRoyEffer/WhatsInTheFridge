@@ -4,6 +4,8 @@ import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
 import "./index.scss";
 
+
+
 export default function Homepage(props) {
   //console.log('propsfromindex',props)
   return (
@@ -11,6 +13,7 @@ export default function Homepage(props) {
       <Navbar {...props} />
       <Body />
       <Footer />
+
     </div>
   );
 }
