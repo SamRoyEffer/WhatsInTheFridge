@@ -7,7 +7,7 @@ export default function IngredientList(props) {
 
   return (
     <div className="ingredientList">
-      <div>
+      <div className="anger">
         {props.ingredients.length
           ? props.ingredients.map((ingredient, i) => {
               return (
