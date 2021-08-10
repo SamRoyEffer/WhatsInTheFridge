@@ -1,7 +1,6 @@
 module.exports = function (db, router) {
   router.post("/ingredients", (req, res) => {
     const body = req.body;
-    console.log("BODY", body);
 
     db.query(
       `INSERT INTO ingredients(name, ing_image) VALUES($1, $2) RETURNING *`,
@@ -22,7 +21,13 @@ module.exports = function (db, router) {
   });
 
   router.post("/ingredients_delete", (req, res) => {
-    db.query(`DELETE FROM ingredients WHERE name = $1`, []);
+    const body = req.body;
+    db.query(`DELETE FROM ingredients WHERE name = $1`, [body.name]).then(
+      (response) => {
+        console.log(response);
+        return res.json(response.rows[0]);
+      }
+    );
   });
 
   return router;

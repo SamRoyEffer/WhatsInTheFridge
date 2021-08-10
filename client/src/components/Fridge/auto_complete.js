@@ -4,11 +4,12 @@ import debounce from "lodash.debounce";
 import "./auto_complete.scss";
 import IngredientList from "./ingredientList";
 import useApplicationData from "../../hooks/useApplicationData";
+import { findIndex } from "lodash";
 // import { loadIngredients } from "../../helper/helpers";
 // import { sortedLastIndex } from "lodash";
 
 const AutoComplete = () => {
-  const { submitIngredient, state } = useApplicationData();
+  const { submitIngredient, state, setState } = useApplicationData();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
@@ -74,6 +75,25 @@ const AutoComplete = () => {
     return <div {...containerProps}>{children}</div>;
   }
 
+  const removeIngredient = (i) => {
+    const ingredients = state.ingredients.filter(
+      (ingredient) => ingredient.id != i.id
+    );
+    setState((prev) => ({
+      ...prev,
+      ingredients,
+    }));
+  };
+
+  const checkIngredient = (selectedSuggestion) => {
+    const exists = state.ingredients.findIndex(
+      (ingredient) => ingredient.name === selectedSuggestion.name
+    );
+    if (exists < 0) {
+      submitIngredient(selectedSuggestion);
+    }
+  };
+
   const inputProps = {
     placeholder: "Ex: apples",
     value,
@@ -101,7 +121,7 @@ const AutoComplete = () => {
             type="submit"
             onClick={(event) => {
               event.preventDefault();
-              submitIngredient(selectedSuggestion);
+              checkIngredient(selectedSuggestion);
             }}
           >
             Add
@@ -111,7 +131,10 @@ const AutoComplete = () => {
         )}
       </form>
       <div>
-        <IngredientList ingredients={state.ingredients} />
+        <IngredientList
+          ingredients={state.ingredients}
+          removeIngredient={removeIngredient}
+        />
       </div>
     </section>
   );
