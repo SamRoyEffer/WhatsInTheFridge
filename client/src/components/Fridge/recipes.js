@@ -38,8 +38,6 @@ const Recipes = () => {
     });
   };
 
-  // console.log(recipeList)
-
   return (
     <Fragment>
       <div className="buttonDiv">

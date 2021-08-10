@@ -14,7 +14,6 @@ const useApplicationData = () => {
       axios.get("http://localhost:3001/api/recipe"),
       axios.get("http://localhost:3001/api/ingredients"),
     ]).then((all) => {
-      console.log("ALLL", all);
       setState((prev) => ({
         ...prev,
         ingredients: all[1].data,
@@ -26,7 +25,6 @@ const useApplicationData = () => {
     axios
       .post("http://localhost:3001/api/ingredients", ingredient)
       .then((res) => {
-        console.log("))))))))))+++++++", res.data);
         const ingredients = state.ingredients;
         ingredients.push(res.data);
         setState((prev) => ({
