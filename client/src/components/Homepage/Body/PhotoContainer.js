@@ -16,7 +16,7 @@ export default function PhotoContainer(props) {
             <div className="slide">
               <img src={recipe.image} alt='new'></img>
               <div className="info">
-                <h2><span><a href={recipe.sourceUrl}>{recipe.title}</a></span></h2>
+                <h2><span><a className='info' href={recipe.sourceUrl}>{recipe.title}</a></span></h2>
                 
               </div>
             </div>  

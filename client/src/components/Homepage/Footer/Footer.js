@@ -32,9 +32,9 @@ export default function Footer() {
           <div className="col">
             <h4>Services</h4>
             <ul className="list-unstyled">
-              <li>API</li>
-              <li><a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
-              <li><a href='https://www.freepik.com/photos/background'>Background photo</a></li>
+              <li><a className='footerLink' href="https://spoonacular.com/food-api">API</a> </li>
+              <li><a className='footerLink' href="https://www.flaticon.com/" title="Flaticon">Icons</a></li>
+              <li><a className='footerLink' href='https://www.freepik.com/photos/background'>Images</a></li>
             </ul>
           </div>
           

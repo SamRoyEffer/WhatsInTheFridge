@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 .body {
   background-color: #dd7230;
   color:#fff;
@@ -8,15 +9,22 @@
   position: relative;
   text-align: center;
   color: white;
+  height:auto;
 }
 .chicken{
-  height: 50%;
+  height:35vw;
   width: 100%;
 }
 
 .textInMainImage{
   position: absolute;
-  top: 5vh;
-  left: 5vw;
-  font-size: 5vw;
+  bottom: 10%;
+  width: 70%;
+  font-size: 4vw;
+  height:10%;
+  font-family: 'Anton', sans-serif;
+}
+
+.slideshow{
+
 }

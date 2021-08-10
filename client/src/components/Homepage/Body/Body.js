@@ -14,12 +14,17 @@ export default function Body() {
         </div>
         
         <div>
-          <h5>Make recipes with whatever you got! </h5>
+          <h5>Make recipes with whatever you got in the fridge! </h5>
         </div>
 
       </section>
-      <section>
+
+      <section className='slideshow'>
+      <h3 className='slideshowText'>Checkout the popular Recipes below! </h3>
+
+      <div className='slideshowImages'>
         <Slideshow />
+      </div>
       </section>
 
     </div>

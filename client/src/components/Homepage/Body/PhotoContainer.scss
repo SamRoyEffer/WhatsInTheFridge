@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
- 
-.slide{
-
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+.info{
+  
 }
+
 .image-slider{
    position: relative;
    width: 100%;
@@ -20,17 +21,18 @@
 
  h2 span { 
   color: white; 
-  font: bold 24px/45px Helvetica, Sans-Serif; 
+  font-family: 'Kanit', sans-serif;
   letter-spacing: -1px;  
   background: rgb(0, 0, 0); /* fallback color */
   background: rgba(0, 0, 0, 0.4);
   padding: 10px; 
-  border-radius: 20px;
+  border-radius: 40px 20px 40px 20px;
 }
 
-a:link {
-  text-decoration: none;
+a.info, a.info:link, a.info:visited {
   color: white;
   font: bold 24px/45px Helvetica, Sans-Serif; 
+  font-family: 'Kanit', sans-serif;
+  text-decoration: none;
 
 }

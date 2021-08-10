@@ -15,14 +15,14 @@ export default function Slideshow() {
   const [recipe1, setRecipe1] = useState([]);
   const [recipe2, setRecipe2] = useState([]);
 
-  const randomRecipe1 = `https://api.spoonacular.com/recipes/1423/information?apiKey=de4608c7fbba484e981a793441c70c06`
-  const randomRecipe2 = `https://api.spoonacular.com/recipes/5251/information?apiKey=de4608c7fbba484e981a793441c70c06`
+  const randomRecipe1 = `https://api.spoonacular.com/recipes/1423/information?apiKey=9768625974324441a01777879d94c9b2`
+  const randomRecipe2 = `https://api.spoonacular.com/recipes/5251/information?apiKey=9768625974324441a01777879d94c9b2`
 
 
   const getAllRecipes = () => {
     axios.all([
-      //axios.get(randomRecipe1),
-      //axios.get(randomRecipe2)
+      axios.get(randomRecipe1),
+      axios.get(randomRecipe2)
     //Promise.resolve(axios.get(randomRecipe2)),
     ])
       .then((all) => {
@@ -43,7 +43,7 @@ export default function Slideshow() {
 
   return (
     <section className='carousel'>
-    <Carousel className='carouselFirst' prevLabel={null} nextLabel={null}>
+    <Carousel className='carouselFirst' prevLabel={null} nextLabel={null} fade={true}>
   <Carousel.Item>
     <PhotoContainer  recipe={recipe1} />
   </Carousel.Item>

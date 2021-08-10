@@ -18,8 +18,16 @@ Title{
 }
 
 .col{
-  font-size:small;
+  font-size:10px;
   & h4{
-    font-size:17px; 
+    font-size:20px; 
   }
 }
+.list-unstyled{
+  font-size: 15px;
+}
+a.footerLink, a.footerLink:link, a.footerLink:visited {
+  text-decoration: none;
+  color: white;
+}
+
