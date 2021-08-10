@@ -1,25 +1,30 @@
 import React, { createElement } from "react";
 import useApplicationData from "../../hooks/useApplicationData";
-import './ingreList.scss'
+import "./ingreList.scss";
 
 export default function IngredientList(props) {
-  const { state } = useApplicationData();
+  const { state, deleteIngredient, setState } = useApplicationData();
 
   return (
     <div className="ingredientList">
-      {console.log("STATE", state)} 
-      
-      <p>
-        {state.ingredients
-          ? state.ingredients.map((ingredient, i) => {
+      <div className="anger">
+        {props.ingredients.length
+          ? props.ingredients.map((ingredient, i) => {
               return (
-                <div key={i} className="ingreList">
-                  <p>{ingredient.name}</p>
+                <div
+                  key={i}
+                  className="ingreList"
+                  onClick={(e) => {
+                    deleteIngredient(ingredient);
+                    props.removeIngredient(ingredient);
+                  }}
+                >
+                  <h6 className="ingreName">{ingredient.name}</h6>
                 </div>
               );
             })
           : null}
-      </p>
+      </div>
     </div>
   );
 }

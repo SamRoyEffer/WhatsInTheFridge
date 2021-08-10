@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import './BurgerOptions.scss';
+import React from "react";
+import styled from "styled-components";
+import "./BurgerOptions.scss";
 
 
 const Ul = styled.ul`
@@ -14,10 +14,10 @@ const Ul = styled.ul`
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #FFC857;
+    background-color: #ffc857;
     border-style: solid;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     top: 0;
     right: 0;
     height: 100vh;
@@ -26,7 +26,7 @@ const Ul = styled.ul`
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     transition: transform 0.2 ease-in-out;
-    z-index:20;
+    z-index: 20;
 
     li {
       color: #fff;
@@ -34,15 +34,16 @@ const Ul = styled.ul`
   }
 `;
 
-
-export default function BurgerOptions ({ open, ...props }) {
-  //console.log('propsfromburgeroptions:',{...props})
-  props = {...props}.onFridge
+export default function BurgerOptions({ open, ...props }) {
+  const onFridge = { ...props }.onFridge;
+  const onHome = { ...props }.onHome;
   return (
     <Ul open={open}>
-      <button className='navButton'>Home</button>
-      <button className='navButton' onClick={props} >Fridge</button>
-      <button className='navButton'>Logout</button>
+      <button className="navButton" onClick={onHome}>Home</button>
+      <button className="navButton" onClick={onFridge}>
+        Fridge
+      </button>
+      <button className="navButton">Logout</button>
     </Ul>
-  )
+  );
 }

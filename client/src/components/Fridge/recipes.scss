@@ -1,11 +1,6 @@
-// section {
-//   margin-top: 25px;
-// }
-.componentContainer{
+.componentContainer {
   position: absolute;
 }
-
-
 
 .recipeContainer {
   display: flex;
@@ -13,11 +8,11 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  //background-image: url('./wooden-textured-background.jpg');
   z-index: +2;
   position: relative;
-  height: 100vh;
-  width: 65vw;
+  height: 100%;
+  width: 100%;
+  margin-top: 5%;
 }
 
 .buttonDiv {
@@ -35,10 +30,9 @@
   margin: 1em;
   border-radius: 0.35rem;
   position: relative;
-  width: 45%;
+  width: 30%;
   height: 30%;
 }
-
 
 .recipeImage {
   object-fit: cover;
@@ -49,7 +43,7 @@
   height: 100%;
 }
 
-.textContainer{
+.textContainer {
   color: #ffff;
   display: flex;
   flex: 1;
@@ -73,10 +67,12 @@
 }
 
 .recipeTitle {
-  margin-bottom: 5px;  
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .missingAmmount {
-  margin-top: 250px;
+  display: flex;
+  justify-content: center;
   z-index: +2;
 }

@@ -15,12 +15,15 @@ export default function App(props) {
   const fridgePage = () => {
     transition(FRIDGE);
   };
+  const HomePage = () => {
+    transition(HOME);
+  };
 
   return (
     <div className="App">
       <div className="App">
-        {mode === HOME && <Homepage onFridge={fridgePage} />}
-        {mode === FRIDGE && <Fridge />}
+        {mode === HOME && <Homepage onFridge={fridgePage} onHome={HomePage}/>}
+        {mode === FRIDGE && <Fridge onFridge={fridgePage} onHome={HomePage}/>}
       </div>
     </div>
   );

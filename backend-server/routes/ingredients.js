@@ -15,13 +15,17 @@ module.exports = function (db, router) {
   });
   router.get("/ingredients", (req, res) => {
     db.query(`SELECT * FROM ingredients`).then((response) => {
-      console.log("LLLLLL", response);
       return res.json(response.rows);
     });
   });
 
   router.post("/ingredients_delete", (req, res) => {
-    db.query(`DELETE FROM ingredients WHERE name = $1`, []);
+    const body = req.body;
+    db.query(`DELETE FROM ingredients WHERE name = $1`, [body.name]).then(
+      (response) => {
+        return res.json(response.rows[0]);
+      }
+    );
   });
 
   return router;

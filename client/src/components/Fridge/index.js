@@ -5,12 +5,12 @@ import Navbar from "../Homepage/Navbar/Navbar";
 import IngredientList from "./ingredientList";
 import useApplicationData from "../../hooks/useApplicationData";
 
-export default function Fridge() {
+export default function Fridge(props) {
   const { state } = useApplicationData();
   return (
     <section>
     <nav>
-    <Navbar />
+    <Navbar {...props} />
     </nav>
     <div className='fridge'>
       

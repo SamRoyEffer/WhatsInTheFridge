@@ -1,5 +1,5 @@
 /node_modules/
-
+.DS_Store
 /node_modules/setprototypeof/LICENSE
 /node_modules/setprototypeof/README.md
 .env

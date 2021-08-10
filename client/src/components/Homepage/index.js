@@ -7,7 +7,6 @@ import "./index.scss";
 
 
 export default function Homepage(props) {
-  //console.log('propsfromindex',props)
   return (
     <div className="webpage">
       <Navbar {...props} />
