@@ -2,23 +2,32 @@ section {
   width: 100%;
 }
 .autosuggest {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-right: 10px;
   padding-left: 10px;
   padding-top: 20px;
-  padding-bottom:50px;
-  margin: auto;
+  padding-bottom:30px;
+  margin-left: 0px;
+  margin-right: 0px;
   margin-top: 40px;
-  margin-bottom: 10%;
-  border:2px solid;
+  margin-bottom: 40px;
+  border:3px solid white;
   border-radius: 20px;
   outline: none solid 20px;
-  background-color: #68BBE3;
+  background-color: #FFC857;
+
   & h2 {
     margin-bottom: 12px;
 
+  }
+
+  & h3 {
+    color: #fff; 
+    text-shadow: 2px 2px 0 #000; 
   }
 }
 .btn {

@@ -52,6 +52,14 @@ const useApplicationData = () => {
     axios.post("http://localhost:3001/api/recipe_add", recipe);
     return state;
   }
+
+  // in progress to remove ingredients from list in fridge
+  const removeIngredient = (ingredient) => {
+    const newState = state
+    
+  }
+
+
   return { submitIngredient, state, submitRecipe };
 };
 
