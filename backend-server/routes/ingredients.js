@@ -21,7 +21,13 @@ module.exports = function (db, router) {
   });
 
   router.post("/ingredients_delete", (req, res) => {
-    db.query(`DELETE FROM ingredients WHERE name = $1`, []);
+    const body = req.body;
+    db.query(`DELETE FROM ingredients WHERE name = $1`, [body.name]).then(
+      (response) => {
+        console.log(response);
+        return res.json(response.rows[0]);
+      }
+    );
   });
 
   return router;

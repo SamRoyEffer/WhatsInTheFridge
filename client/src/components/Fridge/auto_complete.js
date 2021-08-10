@@ -1,15 +1,16 @@
-import React, {useState, useCallback} from 'react';
-import Autosuggest from 'react-autosuggest';
-import debounce from 'lodash.debounce';
-import './auto_complete.scss';
-import IngredientList from './ingredientList';
+import React, { useState, useCallback } from "react";
+import Autosuggest from "react-autosuggest";
+import debounce from "lodash.debounce";
+import "./auto_complete.scss";
+import IngredientList from "./ingredientList";
 import useApplicationData from "../../hooks/useApplicationData";
-import { Button } from 'react-bootstrap';
+import { Button } from "react-bootstrap";
+import { findIndex } from "lodash";
 // import { loadIngredients } from "../../helper/helpers";
 // import { sortedLastIndex } from "lodash";
 
 const AutoComplete = () => {
-  const { submitIngredient } = useApplicationData();
+  const { submitIngredient, state, setState } = useApplicationData();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
@@ -75,6 +76,25 @@ const AutoComplete = () => {
     return <div {...containerProps}>{children}</div>;
   }
 
+  const removeIngredient = (i) => {
+    const ingredients = state.ingredients.filter(
+      (ingredient) => ingredient.id != i.id
+    );
+    setState((prev) => ({
+      ...prev,
+      ingredients,
+    }));
+  };
+
+  const checkIngredient = (selectedSuggestion) => {
+    const exists = state.ingredients.findIndex(
+      (ingredient) => ingredient.name === selectedSuggestion.name
+    );
+    if (exists < 0) {
+      submitIngredient(selectedSuggestion);
+    }
+  };
+
   const inputProps = {
     placeholder: "Ex: apples",
     value,
@@ -85,7 +105,9 @@ const AutoComplete = () => {
   return (
     <section>
       <form className="autosuggest">
-        <h3><b>Ingredient Search:</b></h3>
+        <h3>
+          <b>Ingredient Search:</b>
+        </h3>
         <Autosuggest
           onChange={onChange}
           suggestions={suggestions}
@@ -100,22 +122,25 @@ const AutoComplete = () => {
         />
         {selectedSuggestion ? (
           <Button
-          className="addButton"
-          variant="secondary"
+            className="addButton"
+            variant="secondary"
             type="submit"
             onClick={(event) => {
               event.preventDefault();
-              submitIngredient(selectedSuggestion);
-              setValue("")
-              setSelectedSuggestion(null)
+              setValue("");
+              setSelectedSuggestion(null);
+              checkIngredient(selectedSuggestion);
             }}
           >
             Add
           </Button>
-        ) : null }
+        ) : null}
       </form>
       <div>
-        <IngredientList/>
+        <IngredientList
+          ingredients={state.ingredients}
+          removeIngredient={removeIngredient}
+        />
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ const defaultState = {
 
 const useApplicationData = () => {
   const [state, setState] = useState(defaultState);
-  console.log("INSIDE APP DATA", state);
+
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:3001/api/recipe"),
@@ -18,7 +18,6 @@ const useApplicationData = () => {
       setState((prev) => ({
         ...prev,
         ingredients: all[1].data,
-        // recepies: all[1].data,
       }));
     });
   }, []);
@@ -34,33 +33,24 @@ const useApplicationData = () => {
     }
     axios
       .post("http://localhost:3001/api/ingredients", ingredient)
+      .then((res) => {
+        console.log("))))))))))+++++++", res.data);
+        const ingredients = state.ingredients;
+        ingredients.push(res.data);
+        setState((prev) => ({
+          ...prev,
+          ingredients,
+        }));
+      })
       .catch((err) => {
         console.log("ERROR", err);
       });
-    return state;
   };
 
-  function submitRecipe(recipe) {
-    console.log("HIT ME");
-    const newState = state;
-    newState.recepies.push(recipe);
-    setState({ ...newState });
-    const newRecipe = state.includes(recipe);
-    if (newRecipe) {
-      return;
-    }
-    axios.post("http://localhost:3001/api/recipe_add", recipe);
-    return state;
-  }
-
-  // in progress to remove ingredients from list in fridge
-  const removeIngredient = (ingredient) => {
-    const newState = state
-    
-  }
-
-
-  return { submitIngredient, state, submitRecipe };
+  const deleteIngredient = (ingredient) => {
+    axios.post("http://localhost:3001/api/ingredients_delete", ingredient);
+  };
+  return { submitIngredient, state, deleteIngredient, setState };
 };
 
 export default useApplicationData;
