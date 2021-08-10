@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./recipes.scss";
 import { Button } from "react-bootstrap";
 import useApplicationData from "../../hooks/useApplicationData";
@@ -41,10 +41,10 @@ const Recipes = () => {
   // console.log(recipeList)
 
   return (
-    <section>
+    <Fragment>
       <div className="buttonDiv">
         <Button variant="info" onClick={callRecipies}>
-          Generate
+          Generate Recipes
         </Button>{" "}
       </div>
       <div className="recipeContainer">
@@ -75,7 +75,7 @@ const Recipes = () => {
           );
         })}
       </div>
-    </section>
+    </Fragment>
   );
 };
 
