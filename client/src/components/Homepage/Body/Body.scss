@@ -28,3 +28,23 @@
 .slideshow{
 
 }
+
+.mainImage span { 
+  color: white; 
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -1px;  
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px; 
+}
+
+.pros{
+  display:flex;
+  justify-content: space-evenly;
+  opacity:0.8; 
+  font-size: 21vw;
+  &Element{
+    line-height: 5vh;
+    font-size: 2vw;
+  }
+}
