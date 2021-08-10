@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
  
+.slide{
+
+}
 .image-slider{
    position: relative;
    width: 100%;
+   transform: skewY(20deg);
+   
  }
 
  h2 {
@@ -10,6 +15,7 @@
    top: 20px;
    width: 100%;
    left: 0;
+   
  }
 
  h2 span { 
@@ -19,6 +25,7 @@
   background: rgb(0, 0, 0); /* fallback color */
   background: rgba(0, 0, 0, 0.4);
   padding: 10px; 
+  border-radius: 20px;
 }
 
 a:link {

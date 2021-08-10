@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap');
+
 .nav{
   background-color: #FFC857;
   margin-block: 10px;
@@ -8,15 +10,18 @@
   }
 
   &Button{
-    background-color: #FFC870;
+    background-color: #FFC857;
     color: #FFFF;
     height: 25px;
     text-decoration: none;
     line-height: 0px;
     border-radius: 10%;
+    border: none;
     text-transform: uppercase;
     transition: all 0.4s ease 0s;
-    text-shadow: 0.5px 0px #000000;
+    text-shadow: 1px 1px 0 #000; 
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold; 
    
 
     &List{

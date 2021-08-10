@@ -32,9 +32,8 @@ export default function Footer() {
             <h4>Services</h4>
             <ul className="list-unstyled">
               <li>API</li>
-              <li><a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
-              <li><a href="http://www.freepik.com">Designed by Kjpargeter / Freepik</a></li>
-              <li><a href='https://www.freepik.com/photos/background'>Background photo created by rawpixel.com - www.freepik.com</a></li>
+              <li><a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+              <li><a href='https://www.freepik.com/photos/background'>Background photo</a></li>
             </ul>
           </div>
           

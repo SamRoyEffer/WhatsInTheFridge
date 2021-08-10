@@ -42,8 +42,8 @@ export default function Slideshow() {
       }, [])
 
   return (
-    <section>
-    <Carousel>
+    <section className='carousel'>
+    <Carousel className='carouselFirst' prevLabel={null} nextLabel={null}>
   <Carousel.Item>
     <PhotoContainer  recipe={recipe1} />
   </Carousel.Item>
@@ -53,7 +53,7 @@ export default function Slideshow() {
   </Carousel.Item>
 
 </Carousel>
-  
+
     
    
     </section>
