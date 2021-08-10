@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 import './auto_complete.scss';
 import IngredientList from './ingredientList';
 import useApplicationData from "../../hooks/useApplicationData";
+import { Button } from 'react-bootstrap';
 // import { loadIngredients } from "../../helper/helpers";
 // import { sortedLastIndex } from "lodash";
 
@@ -97,15 +98,18 @@ const AutoComplete = () => {
           onSuggestionSelected={onSuggestionSelected}
         />
         {selectedSuggestion ? (
-          <button
+          <Button
+          variant="secondary"
             type="submit"
             onClick={(event) => {
               event.preventDefault();
               submitIngredient(selectedSuggestion);
+              setValue("")
+              setSelectedSuggestion(null)
             }}
           >
             Add
-          </button>
+          </Button>
         ) : (
           <h2>What's in your fridge?</h2>
         )}
