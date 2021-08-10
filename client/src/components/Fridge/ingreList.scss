@@ -1,5 +1,3 @@
-
-
 .ingreList {
   width: 25%;
   height: 10%;
@@ -9,19 +7,17 @@
   margin: 1%;
   border-radius: 15px;
   outline: none solid 20px;
-  background-color: #FFC857;
+  background-color: #ffc857;
 
   & h2 {
     text-align: center;
     position: static;
     margin-bottom: 12px;
-
   }
-
 }
 
 p {
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
