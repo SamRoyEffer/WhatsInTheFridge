@@ -134,7 +134,11 @@ const AutoComplete = () => {
           >
             Add
           </Button>
-        ) : null}
+        ) : (
+          <Button variant="secondary" disabled>
+            Add
+          </Button>
+        )}
       </form>
       <div>
         <IngredientList
