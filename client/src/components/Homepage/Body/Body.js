@@ -14,9 +14,9 @@ export default function Body() {
         </div>
 
         <div className='pros'>
-          <h3 className='prosElement'>Limit food waste</h3>
-          <h3 className='prosMiddleElement'>Decrease time spent looking for food</h3>
-          <h3 className='prosElement'>Find recipes easily</h3>
+          <h3 className='prosElement'>Limit food waste<span>&#9989;</span></h3>
+          <h3 className='prosMiddleElement'>Decrease time spent looking for food<span>&#9989;</span></h3>
+          <h3 className='prosElement'>Find recipes easily<span>&#9989;</span></h3>
         </div>
 
        
