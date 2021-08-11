@@ -17,7 +17,7 @@ const AutoComplete = () => {
 
   const options = async (value) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=8a5caab478484b4798b15918420d1e5e&query=${value}&number=5`
+      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=e98bce1a8d334de8923e5718dd14b7e0&query=${value}&number=5`
     ).then((res) => {
       return res.json();
     });

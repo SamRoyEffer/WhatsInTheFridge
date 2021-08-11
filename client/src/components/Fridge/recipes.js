@@ -15,7 +15,7 @@ const Recipes = () => {
 
   const linkToPage = async (id) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/recipes/${id}/information?apiKey=8a5caab478484b4798b15918420d1e5e&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=e98bce1a8d334de8923e5718dd14b7e0&includeNutrition=false`
     ).then((res) => res.json());
     window.open(resolved.sourceUrl);
     return resolved;
@@ -26,7 +26,7 @@ const Recipes = () => {
 
   const options = async (value) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?includeNutrition=false&apiKey=8a5caab478484b4798b15918420d1e5e&ignorePantry=true&ingredients=${value}&ranking=2&limitLicense=true&number=6`
+      `https://api.spoonacular.com/recipes/findByIngredients?includeNutrition=false&apiKey=e98bce1a8d334de8923e5718dd14b7e0&ignorePantry=true&ingredients=${value}&ranking=2&limitLicense=true&number=6`
     );
     return resolved.json();
   };
