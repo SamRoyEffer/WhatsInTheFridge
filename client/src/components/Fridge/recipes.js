@@ -7,7 +7,7 @@ const Recipes = (props) => {
   const { state } = props
   const [recipeList, setRecipeList] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState(null);
-console.log("&&&", props)
+
   const selectRecipe = (value) => {
     setRecipeSelected(value);
     linkToPage(value);
