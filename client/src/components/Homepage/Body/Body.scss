@@ -1,77 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
 .body {
   background-color: #dd7230;
-  color:#fff;
+  color: #fff;
   padding: 0px 0px 20px 0px;
   border-radius: 8px;
+  background: linear-gradient(180deg, #dd7230, #ffc857);
 }
-.mainImage{
+.mainImage {
   position: relative;
   text-align: center;
   color: white;
-  height:auto;
+  height: auto;
 }
-.chicken{
-  height:35vw;
+.chicken {
+  height: 35vw;
   width: 100%;
 }
 
-.textInMainImage{
+.textInMainImage {
   position: absolute;
   bottom: 10%;
   width: 70%;
   font-size: 3vw;
-  height:10%;
-  font-family: 'Anton', sans-serif;
+  height: 10%;
+  font-family: "Anton", sans-serif;
 }
 
-.slideshow{
-  font-family: 'Anton', sans-serif;
+.slideshow {
+  font-family: "Anton", sans-serif;
   font-weight: bold;
-  &Text{
+  &Text {
     font-size: 3vw;
-    padding:20px;
+    padding: 20px;
   }
 }
 
-
-.mainImage span { 
-  color: white; 
-  font-family: 'Anton', sans-serif;
-  letter-spacing: -1px;  
+.mainImage span {
+  color: white;
+  font-family: "Anton", sans-serif;
+  letter-spacing: -1px;
   background: rgb(0, 0, 0); /* fallback color */
   background: rgba(0, 0, 0, 0.4);
-  padding: 10px; 
+  padding: 10px;
 }
 
-.pros{
-  display:inline-flex;
+.pros {
+  display: inline-flex;
   justify-content: space-evenly;
-  opacity:0.8; 
+  opacity: 0.8;
   font-size: 21vw;
-  font-family: 'Cairo', sans-serif;
-  width:100%;
-  border-bottom: 2px solid rgba(0, 0, 0, .2);
-  &Element{
+  font-family: "Cairo", sans-serif;
+  width: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  &Element {
     line-height: 6vh;
     font-size: 1.5vw;
-    padding:0 8vw;
- 
-    margin-bottom:0;
+    padding: 0 8vw;
+
+    margin-bottom: 0;
   }
-  &MiddleElement{
+  &MiddleElement {
     line-height: 6vh;
     font-size: 1.5vw;
-    padding:0 8vw;
-    border-right: 2px solid rgba(0, 0, 0, .2);
-    border-left: 2px solid rgba(0, 0, 0, .2);
-    margin-bottom:0;
+    padding: 0 8vw;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 0;
   }
 }
 
-.bodyParagraph{
-  width:70%;
+.bodyParagraph {
+  width: 70%;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 40px;
@@ -81,9 +81,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 1s;
   -webkit-transition: all 1s;
-  font-family: 'Cairo', sans-serif;
-  & h5{
+  font-family: "Cairo", sans-serif;
+  & h5 {
     font-size: 1.5vw;
-    
-    }
+  }
 }
