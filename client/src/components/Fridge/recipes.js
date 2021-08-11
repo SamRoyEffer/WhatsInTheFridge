@@ -40,8 +40,6 @@ console.log("&&&", props)
     .catch((err) => {console.log("error", err)})
   };
 
-  // testung
-
   return (
     <Fragment>
       <div className="buttonDiv">
