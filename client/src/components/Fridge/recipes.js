@@ -38,8 +38,6 @@ const Recipes = () => {
     });
   };
 
-  // testung
-
   return (
     <Fragment>
       <div className="buttonDiv">
