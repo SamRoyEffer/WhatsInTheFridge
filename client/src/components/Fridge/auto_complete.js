@@ -9,15 +9,15 @@ import { findIndex } from "lodash";
 // import { loadIngredients } from "../../helper/helpers";
 // import { sortedLastIndex } from "lodash";
 
-const AutoComplete = () => {
-  const { submitIngredient, state, setState } = useApplicationData();
+const AutoComplete = (props) => {
+  const { submitIngredient, state, setState } = props;
   const [value, setValue] = useState("");
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
-
+  console.log("^^^", props)
   const options = async (value) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=e98bce1a8d334de8923e5718dd14b7e0&query=${value}&number=5`
+      `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=68003bba9d494646b4800cc73362cef6&query=${value}&number=5`
     ).then((res) => {
       return res.json();
     });

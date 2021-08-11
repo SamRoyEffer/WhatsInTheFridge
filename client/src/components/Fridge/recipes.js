@@ -3,11 +3,11 @@ import "./recipes.scss";
 import { Button } from "react-bootstrap";
 import useApplicationData from "../../hooks/useApplicationData";
 
-const Recipes = () => {
-  const { state } = useApplicationData();
+const Recipes = (props) => {
+  const { state } = props
   const [recipeList, setRecipeList] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState(null);
-
+console.log("&&&", props)
   const selectRecipe = (value) => {
     setRecipeSelected(value);
     linkToPage(value);
@@ -15,7 +15,7 @@ const Recipes = () => {
 
   const linkToPage = async (id) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/recipes/${id}/information?apiKey=e98bce1a8d334de8923e5718dd14b7e0&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=68003bba9d494646b4800cc73362cef6&includeNutrition=false`
     ).then((res) => res.json());
     window.open(resolved.sourceUrl);
     return resolved;
@@ -26,16 +26,18 @@ const Recipes = () => {
 
   const options = async (value) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?includeNutrition=false&apiKey=e98bce1a8d334de8923e5718dd14b7e0&ignorePantry=true&ingredients=${value}&ranking=2&limitLicense=true&number=6`
+      `https://api.spoonacular.com/recipes/findByIngredients?includeNutrition=false&apiKey=68003bba9d494646b4800cc73362cef6&ignorePantry=true&ingredients=${value}&ranking=2&limitLicense=true&number=6`
     );
     return resolved.json();
   };
 
   const callRecipies = () => {
     const foobar = options(ingredients);
+    console.log("hello", state)
     foobar.then((res) => {
       setRecipeList(res);
-    });
+    })
+    .catch((err) => {console.log("error", err)})
   };
 
   // testung

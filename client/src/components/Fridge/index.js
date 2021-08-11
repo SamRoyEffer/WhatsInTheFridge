@@ -6,8 +6,7 @@ import IngredientList from "./ingredientList";
 import useApplicationData from "../../hooks/useApplicationData";
 
 export default function Fridge(props) {
-  const { state } = useApplicationData();
-  return (
+  const { submitIngredient, state, setState } = useApplicationData();  return (
     <section>
     <nav>
     <Navbar {...props} />
@@ -16,12 +15,12 @@ export default function Fridge(props) {
       
       <div className='autocompleteContainer'>
       <div className="background">
-        <AutoComplete />
+        <AutoComplete { ...{submitIngredient, state, setState} }/>
     </div>
       </div>
 
       <div className='recipesContainer'>
-        <Recipes />
+        <Recipes { ...{state} }/>
       </div>
     </div>
     </section>

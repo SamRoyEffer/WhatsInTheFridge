@@ -25,11 +25,12 @@ const useApplicationData = () => {
     axios
       .post("http://localhost:3001/api/ingredients", ingredient)
       .then((res) => {
-        const ingredients = state.ingredients;
-        ingredients.push(res.data);
+        console.log('line 28 useAppData', state)
+        // const ingredients = state.ingredients;
+        // ingredients.push(res.data);
         setState((prev) => ({
           ...prev,
-          ingredients,
+          ingredients: [ ...prev.ingredients, ingredient ],
         }));
       })
       .catch((err) => {
