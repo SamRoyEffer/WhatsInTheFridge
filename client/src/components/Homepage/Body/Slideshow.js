@@ -14,16 +14,22 @@ export default function Slideshow() {
   //const [photos, getPhotos] = useState([]);
   const [recipe1, setRecipe1] = useState([]);
   const [recipe2, setRecipe2] = useState([]);
+  const [recipe3, setRecipe3] = useState([]);
+  const [recipe4, setRecipe4] = useState([]);
 
   const randomRecipe1 = `https://api.spoonacular.com/recipes/1423/information?apiKey=9768625974324441a01777879d94c9b2`;
   const randomRecipe2 = `https://api.spoonacular.com/recipes/5251/information?apiKey=9768625974324441a01777879d94c9b2`;
+  const randomRecipe3 = `https://api.spoonacular.com/recipes/659290/information?apiKey=9768625974324441a01777879d94c9b2`;
+  const randomRecipe4 = `https://api.spoonacular.com/recipes/1499853/information?apiKey=9768625974324441a01777879d94c9b2`;
 
   const getAllRecipes = () => {
     axios
-      .all([axios.get(randomRecipe1), axios.get(randomRecipe2)])
+      .all([axios.get(randomRecipe1), axios.get(randomRecipe2), axios.get(randomRecipe3), axios.get(randomRecipe4)])
       .then((all) => {
         setRecipe1(all[0].data);
         setRecipe2(all[1].data);
+        setRecipe3(all[2].data);
+        setRecipe4(all[3].data);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
@@ -41,6 +47,14 @@ export default function Slideshow() {
 
   <Carousel.Item>
     <PhotoContainer recipe={recipe2}/>
+  </Carousel.Item>
+
+  <Carousel.Item>
+    <PhotoContainer recipe={recipe3}/>
+  </Carousel.Item>
+  
+  <Carousel.Item>
+    <PhotoContainer recipe={recipe4}/>
   </Carousel.Item>
 
 </Carousel>

@@ -3,7 +3,11 @@
 .info{
   
 }
-
+.slide {
+  & img{
+    border-radius: 20%;
+  }
+}
 .image-slider{
    position: relative;
    width: 100%;

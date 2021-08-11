@@ -21,7 +21,7 @@
   position: absolute;
   bottom: 10%;
   width: 70%;
-  font-size: 4vw;
+  font-size: 3vw;
   height:10%;
   font-family: 'Anton', sans-serif;
 }
@@ -31,9 +31,10 @@
   font-weight: bold;
   &Text{
     font-size: 3vw;
-    
+    padding:20px;
   }
 }
+
 
 .mainImage span { 
   color: white; 
@@ -45,16 +46,27 @@
 }
 
 .pros{
-  display:flex;
+  display:inline-flex;
   justify-content: space-evenly;
   opacity:0.8; 
   font-size: 21vw;
   font-family: 'Cairo', sans-serif;
+  width:100%;
+  border-bottom: 2px solid rgba(0, 0, 0, .2);
   &Element{
-    line-height: 5vh;
-    font-size: 2vw;
-    
-    
+    line-height: 6vh;
+    font-size: 1.5vw;
+    padding:0 8vw;
+ 
+    margin-bottom:0;
+  }
+  &MiddleElement{
+    line-height: 6vh;
+    font-size: 1.5vw;
+    padding:0 8vw;
+    border-right: 2px solid rgba(0, 0, 0, .2);
+    border-left: 2px solid rgba(0, 0, 0, .2);
+    margin-bottom:0;
   }
 }
 
@@ -62,13 +74,16 @@
   width:90%;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 10px;
   filter: alpha(opacity=50);
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 1s;
   -webkit-transition: all 1s;
   font-family: 'Cairo', sans-serif;
   & h5{
-    font-size: 2vw;
+    font-size: 1.5vw;
     
     }
 }
