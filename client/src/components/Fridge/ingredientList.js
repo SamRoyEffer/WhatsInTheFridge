@@ -1,10 +1,7 @@
-import React, { createElement } from "react";
-import useApplicationData from "../../hooks/useApplicationData";
+import React from "react";
 import "./ingreList.scss";
 
 export default function IngredientList(props) {
-  const { state, deleteIngredient, setState } = useApplicationData();
-
   return (
     <div className="ingredientList">
       <div className="anger">
@@ -15,7 +12,7 @@ export default function IngredientList(props) {
                   key={i}
                   className="ingreList"
                   onClick={(e) => {
-                    deleteIngredient(ingredient);
+                    props.deleteIngredient(ingredient);
                     props.removeIngredient(ingredient);
                   }}
                 >

@@ -3,18 +3,17 @@ import Autosuggest from "react-autosuggest";
 import debounce from "lodash.debounce";
 import "./auto_complete.scss";
 import IngredientList from "./ingredientList";
-import useApplicationData from "../../hooks/useApplicationData";
 import { Button } from "react-bootstrap";
 import { findIndex } from "lodash";
 // import { loadIngredients } from "../../helper/helpers";
 // import { sortedLastIndex } from "lodash";
 
 const AutoComplete = (props) => {
-  const { submitIngredient, state, setState } = props;
+  const { submitIngredient, state, setState, deleteIngredient } = props;
   const [value, setValue] = useState("");
   const [suggestions, setSuggestion] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState(null);
-  console.log("^^^", props)
+  console.log("^^^", props);
   const options = async (value) => {
     let resolved = await fetch(
       `https://api.spoonacular.com/food/ingredients/autocomplete?apiKey=68003bba9d494646b4800cc73362cef6&query=${value}&number=5`
@@ -78,7 +77,7 @@ const AutoComplete = (props) => {
 
   const removeIngredient = (i) => {
     const ingredients = state.ingredients.filter(
-      (ingredient) => ingredient.id != i.id
+      (ingredient) => ingredient.name != i.name
     );
     setState((prev) => ({
       ...prev,
@@ -144,6 +143,7 @@ const AutoComplete = (props) => {
         <IngredientList
           ingredients={state.ingredients}
           removeIngredient={removeIngredient}
+          deleteIngredient={deleteIngredient}
         />
       </div>
     </section>

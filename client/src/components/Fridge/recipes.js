@@ -1,13 +1,12 @@
 import React, { useState, Fragment } from "react";
 import "./recipes.scss";
 import { Button } from "react-bootstrap";
-import useApplicationData from "../../hooks/useApplicationData";
 
 const Recipes = (props) => {
-  const { state } = props
+  const { state } = props;
   const [recipeList, setRecipeList] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState(null);
-console.log("&&&", props)
+  console.log("&&&", props);
   const selectRecipe = (value) => {
     setRecipeSelected(value);
     linkToPage(value);
@@ -33,11 +32,14 @@ console.log("&&&", props)
 
   const callRecipies = () => {
     const foobar = options(ingredients);
-    console.log("hello", state)
-    foobar.then((res) => {
-      setRecipeList(res);
-    })
-    .catch((err) => {console.log("error", err)})
+    console.log("hello", state);
+    foobar
+      .then((res) => {
+        setRecipeList(res);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
   };
 
   return (
