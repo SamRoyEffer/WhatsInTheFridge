@@ -6,6 +6,7 @@ const Recipes = (props) => {
   const { state } = props;
   const [recipeList, setRecipeList] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState(null);
+  console.log("&&&", props);
   const selectRecipe = (value) => {
     setRecipeSelected(value);
     linkToPage(value);
@@ -13,7 +14,7 @@ const Recipes = (props) => {
 
   const linkToPage = async (id) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/recipes/${id}/information?apiKey=68003bba9d494646b4800cc73362cef6&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=8a5caab478484b4798b15918420d1e5e&includeNutrition=false`
     ).then((res) => res.json());
     window.open(resolved.sourceUrl);
     return resolved;
@@ -24,7 +25,7 @@ const Recipes = (props) => {
 
   const options = async (value) => {
     let resolved = await fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?includeNutrition=false&apiKey=68003bba9d494646b4800cc73362cef6&ignorePantry=true&ingredients=${value}&ranking=2&limitLicense=true&number=6`
+      `https://api.spoonacular.com/recipes/findByIngredients?includeNutrition=false&apiKey=8a5caab478484b4798b15918420d1e5e&ignorePantry=true&ingredients=${value}&ranking=2&limitLicense=true&number=6`
     );
     return resolved.json();
   };

@@ -17,10 +17,10 @@ export default function Slideshow() {
   const [recipe3, setRecipe3] = useState([]);
   const [recipe4, setRecipe4] = useState([]);
 
-  const randomRecipe1 = `https://api.spoonacular.com/recipes/1423/information?apiKey=e98bce1a8d334de8923e5718dd14b7e0`;
-  const randomRecipe2 = `https://api.spoonacular.com/recipes/5251/information?apiKey=e98bce1a8d334de8923e5718dd14b7e0`;
-  const randomRecipe3 = `https://api.spoonacular.com/recipes/659290/information?apiKey=e98bce1a8d334de8923e5718dd14b7e0`;
-  const randomRecipe4 = `https://api.spoonacular.com/recipes/1499853/information?apiKey=e98bce1a8d334de8923e5718dd14b7e0`;
+  const randomRecipe1 = `https://api.spoonacular.com/recipes/1423/information?apiKey=8a5caab478484b4798b15918420d1e5e`;
+  const randomRecipe2 = `https://api.spoonacular.com/recipes/5251/information?apiKey=8a5caab478484b4798b15918420d1e5e`;
+  const randomRecipe3 = `https://api.spoonacular.com/recipes/659290/information?apiKey=8a5caab478484b4798b15918420d1e5e`;
+  const randomRecipe4 = `https://api.spoonacular.com/recipes/1499853/information?apiKey=8a5caab478484b4798b15918420d1e5e`;
 
   const getAllRecipes = () => {
     axios
