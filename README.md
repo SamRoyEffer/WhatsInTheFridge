@@ -20,7 +20,7 @@
 
 The Required Dependencies are as follows:
 
-For the Back-end server
+**For the Back-end server**
 
 - "cookie-parser": "~1.4.4",
 - "cors": "^2.8.5",
@@ -31,12 +31,12 @@ For the Back-end server
 - "pg-native": "^3.0.0",
 - "sass": "^1.36.0"
 
-Additional Dev Dependencies
+**Additional Dev Dependencies:**
 
 - "dotenv": "^10.0.0",
 - "nodemon": "^2.0.12"
 
-For the Front-end
+**For the Front-end:**
 
 - "@testing-library/react": "^11.2.7",
 - "@testing-library/user-event": "^12.8.3",
@@ -59,11 +59,11 @@ For the Front-end
 - "styled-components": "^5.3.0",
 - "web-vitals": "^1.1.2"
 
-Additional Dev Dependencies
+**Additional Dev Dependencies:**
 
 - "react-dropdown-select": "^4.7.4"
 
-Installation:
+**Installation:**
 
 When the repo is cloned, run an initial `npm install`
 
@@ -71,7 +71,7 @@ Enter the backend-server directory and run an `npm install` in the directory
 
 Enter the client directory and run an `npm install` in this directory as well
 
-Creating the Database:
+**Creating the Database:**
 
 With PSQL installed create a database and a .env file in the back-end directory with the following paramaters
 
@@ -83,14 +83,15 @@ DB_NAME = "name of your database";
 DB_PORT = 5432;
 ```
 
-Do not change the port
+# **Do not change the port**
 
-Starting the backend server:
+**Starting the backend server:**
+
 When the back-end is installed, simply run `nmp start` in the console to run normally or npm run dev to run with nodemon
 
 The backend server is default on port 3001 but can be changed in the ./bin/www on line 15
 
-Starting the client end:
+**Starting the client end:**
 
 When the client is installed, simply enter npm start into another console terminal.
 
