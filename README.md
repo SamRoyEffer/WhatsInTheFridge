@@ -75,11 +75,13 @@ Creating the Database:
 
 With PSQL installed create a database and a .env file in the back-end directory with the following paramaters
 
-DB_HOST = localhost
-DB_USER = "the user you use for PSQL"
-DB_PASS = "Your password for the database"
-DB_NAME = "name of your database"
-DB_PORT = 5432
+```javascript
+DB_HOST = localhost;
+DB_USER = "the user you use for PSQL";
+DB_PASS = "Your password for the database";
+DB_NAME = "name of your database";
+DB_PORT = 5432;
+```
 
 Do not change the port
 
